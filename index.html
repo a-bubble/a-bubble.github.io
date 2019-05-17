@@ -191,7 +191,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/美剧/">-美剧</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li></ul>
                     </div>
                 </section>
                 
@@ -264,11 +264,11 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-剑指Offer" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-TBBT" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/05/01/剑指Offer/" class="article-date">
-      <time datetime="2019-05-01T15:47:44.000Z" itemprop="datePublished">2019-05-01</time>
+      <a href="/2019/05/18/TBBT/" class="article-date">
+      <time datetime="2019-05-17T17:57:39.000Z" itemprop="datePublished">2019-05-18</time>
 </a>
 
 
@@ -283,7 +283,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/01/剑指Offer/">剑指Offer1-2</a>
+      <a class="article-title" href="/2019/05/18/TBBT/">TBBT全剧终</a>
     </h1>
   
 
@@ -293,16 +293,16 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="01"><a href="#01" class="headerlink" title="01"></a>01</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>在一个二维数组中（每个一维数组的长度相同），每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。</p>
-<p>题解：二维数组是从左到右递增，从上到下增。所以用查找目标target与右上角或者左下角元素比较。以右上角为例，如果target大于右上角元素行向下移动，小于列左移。直到超出边界都没找到，返回FALSE。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public class Solution &#123;</span><br><span class="line">public boolean Find(int target, int [][] array) &#123;</span><br><span class="line">int col=arra[0].length-1;</span><br><span class="line">int row=0;</span><br><span class="line">while(row&lt;=array.length-1&amp;&amp;col&gt;=0)</span><br><span class="line">&#123;</span><br><span class="line">if(target==array[row][col])</span><br><span class="line">return true;</span><br><span class="line">else if(target&gt;array[row][col])</span><br><span class="line">row++;</span><br><span class="line">else</span><br><span class="line">col--;</span><br><span class="line">&#125;</span><br><span class="line">return false;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="02"><a href="#02" class="headerlink" title="02"></a>02</h3><h3 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h3><p>请实现一个函数，将一个字符串中的每个空格替换成“%20”。例如，当字符串为We Are Happy.则经过替换之后的字符串为We%20Are%20Happy。</p>
-<p>题解：需要判断每个字符还不是为空格，不是存到结果是的话，替换为%20存入。</p>
-<pre><code>所以：用StringBuffer格式保存新生成字符串。
+        <pre><code> 改好了博客新主题，换了一个新的markdown编辑工具。试验一下，顺便记录下与TBBT的六年。
+ 今天第十二季生活大爆炸完结了。2013-2019年。从补之前的几季到中间剧荒反反复复的看。最喜欢的还是S和L陪Amy和Penny逛街那集，两人相互抱怨后相拥哭泣，搞笑、drama又感人。
+ TBBT有科学，有感动，有搞笑，有温情。今天看了最后一集。Amy在领奖台上说了一番鼓励女性投身科学事业的话真的正能量。Sheldon在领奖台上感谢自已的朋友，用了another family。非常sweety了。当R,B,H,P,L站起来每个人眼睛都是湿润的，不单单是剧情需要......
+ 最后的结尾，大家穿回了第一季的衣服，围坐在茶几前。然后又是那首熟悉的歌，节奏变慢，淡出....
+ 最后的彩蛋还没看。一把年纪，承受不来，只能哪天再看了。
+![enter description here](./images/79484ddb19d4fb5ce91f12d9ff942599.jpg)
 
-  可以使用charAt(index)判断每一字符，等于空格，StringBuffer.append(&quot;%20&quot;),否则直接把这个index下的char存入结果。
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public class Solution &#123;</span><br><span class="line">    public String replaceSpace(StringBuffer str) &#123;</span><br><span class="line">        StringBuffer newStr=new StringBuffer();</span><br><span class="line">        for(int i=0;i&lt;str.length();i++)&#123;</span><br><span class="line">            if(str.charAt(i)==&apos; &apos;)&#123;</span><br><span class="line">                newStr.append(&quot;%20&quot;);</span><br><span class="line">            &#125;</span><br><span class="line">            else</span><br><span class="line">              newStr.append(str.charAt(i));</span><br><span class="line">        &#125;</span><br><span class="line">        return newStr.toString();</span><br><span class="line">    	</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+最后推荐一个博主@生活大爆炸TBBT  (良心字幕组）
+              一个Up主:怪盗魔王MagicOne(英语学习博主）
+</code></pre>
       
     </div>
     
@@ -310,13 +310,13 @@
       
       
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/技术学习/">技术学习</a>
+    <a class="article-category-link" href="/categories/Life-SomethingElse/">Life&SomethingElse</a>
     </div>
 
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/美剧/">-美剧</a></li></ul>
     </div>
 
       
@@ -371,6 +371,78 @@
 <h6 id="1-链表反转"><a href="#1-链表反转" class="headerlink" title="1.链表反转"></a>1.链表反转</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">/**</span><br><span class="line">*    public class ListNode &#123;</span><br><span class="line">*        int val;</span><br><span class="line">*        ListNode next = null;</span><br><span class="line">*</span><br><span class="line">*        ListNode(int val) &#123;</span><br><span class="line">*            this.val = val;</span><br><span class="line">*        &#125;</span><br><span class="line">*    &#125;</span><br><span class="line">*</span><br><span class="line">*/</span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">public class Solution &#123;</span><br><span class="line">    public ArrayList&lt;Integer&gt; printListFromTailToHead(ListNode listNode) &#123;</span><br><span class="line">        ListNode pre=null;</span><br><span class="line">        ArrayList arr=new ArrayList&lt;&gt;();</span><br><span class="line">        while(listNode!=null)&#123;</span><br><span class="line">          ListNode cur=listNode.next;</span><br><span class="line">          listNode.next=pre;</span><br><span class="line">          pre=listNode;</span><br><span class="line">          listNode=cur;</span><br><span class="line">        &#125;</span><br><span class="line">        while(pre!=null)&#123;</span><br><span class="line">            arr.add(pre.val);</span><br><span class="line">            pre=pre.next;</span><br><span class="line">        &#125;</span><br><span class="line">        return arr;        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h5 id="2-两个ArrayList："><a href="#2-两个ArrayList：" class="headerlink" title="2.两个ArrayList："></a>2.两个ArrayList：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">*    public class ListNode &#123;</span><br><span class="line">*        int val;</span><br><span class="line">*        ListNode next = null;</span><br><span class="line">*</span><br><span class="line">*        ListNode(int val) &#123;</span><br><span class="line">*            this.val = val;</span><br><span class="line">*        &#125;</span><br><span class="line">*    &#125;</span><br><span class="line">*</span><br><span class="line">*/</span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">public class Solution &#123;</span><br><span class="line">    public ArrayList&lt;Integer&gt; printListFromTailToHead(ListNode listNode) &#123;</span><br><span class="line">         ArrayList&lt;Integer&gt; arrayList = new ArrayList&lt;Integer&gt;();</span><br><span class="line">         ArrayList&lt;Integer&gt; result = new ArrayList&lt;Integer&gt;();</span><br><span class="line">            while (listNode != null) &#123;</span><br><span class="line">                arrayList.add(listNode.val);</span><br><span class="line">                listNode = listNode.next;</span><br><span class="line">            &#125;</span><br><span class="line">          for(int i=arrayList.size()-1;i&gt;=0;i--)&#123;</span><br><span class="line">              result.add(arrayList.get(i));</span><br><span class="line">          &#125;</span><br><span class="line">          return result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h5 id="3-栈方式"><a href="#3-栈方式" class="headerlink" title="3.栈方式"></a>3.栈方式</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">*    public class ListNode &#123;</span><br><span class="line">*        int val;</span><br><span class="line">*        ListNode next = null;</span><br><span class="line">*</span><br><span class="line">*        ListNode(int val) &#123;</span><br><span class="line">*            this.val = val;</span><br><span class="line">*        &#125;</span><br><span class="line">*    &#125;</span><br><span class="line">*</span><br><span class="line">*/</span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">import java.util.Stack;</span><br><span class="line">public class Solution &#123;</span><br><span class="line">    public ArrayList&lt;Integer&gt; printListFromTailToHead(ListNode listNode) &#123;</span><br><span class="line">     </span><br><span class="line">         ArrayList&lt;Integer&gt; arrayList = new ArrayList&lt;Integer&gt;();</span><br><span class="line"></span><br><span class="line">            Stack&lt;Integer&gt; stack = new Stack&lt;&gt;();</span><br><span class="line">            while (listNode != null) &#123;</span><br><span class="line">                stack.push(listNode.val);</span><br><span class="line">                listNode = listNode.next;</span><br><span class="line">            &#125;</span><br><span class="line">            while (!stack.isEmpty()) &#123;</span><br><span class="line">                arrayList.add(stack.pop());</span><br><span class="line">            &#125;</span><br><span class="line">            return arrayList;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/技术学习/">技术学习</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-剑指Offer" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/05/01/剑指Offer/" class="article-date">
+      <time datetime="2019-05-01T15:47:44.000Z" itemprop="datePublished">2019-05-01</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/01/剑指Offer/">剑指Offer1-2</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="01"><a href="#01" class="headerlink" title="01"></a>01</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>在一个二维数组中（每个一维数组的长度相同），每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。</p>
+<p>题解：二维数组是从左到右递增，从上到下增。所以用查找目标target与右上角或者左下角元素比较。以右上角为例，如果target大于右上角元素行向下移动，小于列左移。直到超出边界都没找到，返回FALSE。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public class Solution &#123;</span><br><span class="line">public boolean Find(int target, int [][] array) &#123;</span><br><span class="line">int col=arra[0].length-1;</span><br><span class="line">int row=0;</span><br><span class="line">while(row&lt;=array.length-1&amp;&amp;col&gt;=0)</span><br><span class="line">&#123;</span><br><span class="line">if(target==array[row][col])</span><br><span class="line">return true;</span><br><span class="line">else if(target&gt;array[row][col])</span><br><span class="line">row++;</span><br><span class="line">else</span><br><span class="line">col--;</span><br><span class="line">&#125;</span><br><span class="line">return false;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="02"><a href="#02" class="headerlink" title="02"></a>02</h3><h3 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h3><p>请实现一个函数，将一个字符串中的每个空格替换成“%20”。例如，当字符串为We Are Happy.则经过替换之后的字符串为We%20Are%20Happy。</p>
+<p>题解：需要判断每个字符还不是为空格，不是存到结果是的话，替换为%20存入。</p>
+<pre><code>所以：用StringBuffer格式保存新生成字符串。
+
+  可以使用charAt(index)判断每一字符，等于空格，StringBuffer.append(&quot;%20&quot;),否则直接把这个index下的char存入结果。
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public class Solution &#123;</span><br><span class="line">    public String replaceSpace(StringBuffer str) &#123;</span><br><span class="line">        StringBuffer newStr=new StringBuffer();</span><br><span class="line">        for(int i=0;i&lt;str.length();i++)&#123;</span><br><span class="line">            if(str.charAt(i)==&apos; &apos;)&#123;</span><br><span class="line">                newStr.append(&quot;%20&quot;);</span><br><span class="line">            &#125;</span><br><span class="line">            else</span><br><span class="line">              newStr.append(str.charAt(i));</span><br><span class="line">        &#125;</span><br><span class="line">        return newStr.toString();</span><br><span class="line">    	</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
