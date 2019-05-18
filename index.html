@@ -191,7 +191,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/美剧/">-美剧</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java基础知识/">-Java基础知识</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/美剧/">-美剧</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li></ul>
                     </div>
                 </section>
                 
@@ -264,6 +264,75 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-5-18" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/05/18/5-18/" class="article-date">
+      <time datetime="2019-05-18T02:52:54.000Z" itemprop="datePublished">2019-05-18</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/18/5-18/">synchronized同步方法</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>&ensp; 非线程安全：多个线程同时对对象中的实例变量进行并发访问时发生。产生的后果是“脏读”。也就是读到的数据是被修改过的。<br>&ensp; 线程安全：获得的实例变量的值是经过同步处理的。</p>
+<h3 id="1-1-方法内的变量是线程安全"><a href="#1-1-方法内的变量是线程安全" class="headerlink" title="1.1 方法内的变量是线程安全"></a>1.1 方法内的变量是线程安全</h3><p>&ensp; 方法内的私有变量，不存在非线程安全问题。是方法内部的变量是私有的特性造成的。<br></p>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/技术学习/">技术学习</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java基础知识/">-Java基础知识</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2019/05/18/5-18/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-TBBT" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -330,11 +399,11 @@
 
 
   
-    <article id="post-剑指Offer3" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-多线程" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/05/01/剑指Offer3/" class="article-date">
-      <time datetime="2019-05-01T15:47:44.000Z" itemprop="datePublished">2019-05-01</time>
+      <a href="/2019/05/15/多线程/" class="article-date">
+      <time datetime="2019-05-15T02:52:54.000Z" itemprop="datePublished">2019-05-15</time>
 </a>
 
 
@@ -349,7 +418,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/01/剑指Offer3/">剑指Offer3</a>
+      <a class="article-title" href="/2019/05/15/多线程/">Java多线程（一）</a>
     </h1>
   
 
@@ -359,12 +428,22 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h5 id="题目描述：输入一个链表，按链表值从尾到头的顺序返回一个ArrayList。"><a href="#题目描述：输入一个链表，按链表值从尾到头的顺序返回一个ArrayList。" class="headerlink" title="题目描述：输入一个链表，按链表值从尾到头的顺序返回一个ArrayList。"></a>题目描述：输入一个链表，按链表值从尾到头的顺序返回一个ArrayList。</h5><h6 id="思路：原链表1→2→3→4-要求返回：ArrayList-4-3-2-1"><a href="#思路：原链表1→2→3→4-要求返回：ArrayList-4-3-2-1" class="headerlink" title="思路：原链表1→2→3→4  要求返回：ArrayList:{4,3,2,1}"></a>思路：原链表1→2→3→4  要求返回：ArrayList:{4,3,2,1}</h6><p>  1.使用链表反转：链表反转之后 从头遍历存入ArrayList</p>
-<p>  2.使用两个ArrayList:链表从头遍历存入ArrayList，ArrayList反序存入另一个ArrayList</p>
-<p>  3.利用栈的先进后出原则：链表元素入栈，栈元素出栈存入ArrayList</p>
-<h6 id="1-链表反转"><a href="#1-链表反转" class="headerlink" title="1.链表反转"></a>1.链表反转</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">/**</span><br><span class="line">*    public class ListNode &#123;</span><br><span class="line">*        int val;</span><br><span class="line">*        ListNode next = null;</span><br><span class="line">*</span><br><span class="line">*        ListNode(int val) &#123;</span><br><span class="line">*            this.val = val;</span><br><span class="line">*        &#125;</span><br><span class="line">*    &#125;</span><br><span class="line">*</span><br><span class="line">*/</span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">public class Solution &#123;</span><br><span class="line">    public ArrayList&lt;Integer&gt; printListFromTailToHead(ListNode listNode) &#123;</span><br><span class="line">        ListNode pre=null;</span><br><span class="line">        ArrayList arr=new ArrayList&lt;&gt;();</span><br><span class="line">        while(listNode!=null)&#123;</span><br><span class="line">          ListNode cur=listNode.next;</span><br><span class="line">          listNode.next=pre;</span><br><span class="line">          pre=listNode;</span><br><span class="line">          listNode=cur;</span><br><span class="line">        &#125;</span><br><span class="line">        while(pre!=null)&#123;</span><br><span class="line">            arr.add(pre.val);</span><br><span class="line">            pre=pre.next;</span><br><span class="line">        &#125;</span><br><span class="line">        return arr;        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="2-两个ArrayList："><a href="#2-两个ArrayList：" class="headerlink" title="2.两个ArrayList："></a>2.两个ArrayList：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">*    public class ListNode &#123;</span><br><span class="line">*        int val;</span><br><span class="line">*        ListNode next = null;</span><br><span class="line">*</span><br><span class="line">*        ListNode(int val) &#123;</span><br><span class="line">*            this.val = val;</span><br><span class="line">*        &#125;</span><br><span class="line">*    &#125;</span><br><span class="line">*</span><br><span class="line">*/</span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">public class Solution &#123;</span><br><span class="line">    public ArrayList&lt;Integer&gt; printListFromTailToHead(ListNode listNode) &#123;</span><br><span class="line">         ArrayList&lt;Integer&gt; arrayList = new ArrayList&lt;Integer&gt;();</span><br><span class="line">         ArrayList&lt;Integer&gt; result = new ArrayList&lt;Integer&gt;();</span><br><span class="line">            while (listNode != null) &#123;</span><br><span class="line">                arrayList.add(listNode.val);</span><br><span class="line">                listNode = listNode.next;</span><br><span class="line">            &#125;</span><br><span class="line">          for(int i=arrayList.size()-1;i&gt;=0;i--)&#123;</span><br><span class="line">              result.add(arrayList.get(i));</span><br><span class="line">          &#125;</span><br><span class="line">          return result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="3-栈方式"><a href="#3-栈方式" class="headerlink" title="3.栈方式"></a>3.栈方式</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">*    public class ListNode &#123;</span><br><span class="line">*        int val;</span><br><span class="line">*        ListNode next = null;</span><br><span class="line">*</span><br><span class="line">*        ListNode(int val) &#123;</span><br><span class="line">*            this.val = val;</span><br><span class="line">*        &#125;</span><br><span class="line">*    &#125;</span><br><span class="line">*</span><br><span class="line">*/</span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">import java.util.Stack;</span><br><span class="line">public class Solution &#123;</span><br><span class="line">    public ArrayList&lt;Integer&gt; printListFromTailToHead(ListNode listNode) &#123;</span><br><span class="line">     </span><br><span class="line">         ArrayList&lt;Integer&gt; arrayList = new ArrayList&lt;Integer&gt;();</span><br><span class="line"></span><br><span class="line">            Stack&lt;Integer&gt; stack = new Stack&lt;&gt;();</span><br><span class="line">            while (listNode != null) &#123;</span><br><span class="line">                stack.push(listNode.val);</span><br><span class="line">                listNode = listNode.next;</span><br><span class="line">            &#125;</span><br><span class="line">            while (!stack.isEmpty()) &#123;</span><br><span class="line">                arrayList.add(stack.pop());</span><br><span class="line">            &#125;</span><br><span class="line">            return arrayList;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h2 id="1"><a href="#1" class="headerlink" title="1."></a>1.</h2><p>&ensp;线程与进程：<br>&ensp;&ensp;一个进程至少有一个线程。线程是进程的执行单元，是进程内的可调度实体。</p>
+<h2 id="2"><a href="#2" class="headerlink" title="2."></a>2.</h2><p>&ensp;Java实现多线程的比较简单两种方式：<br>&ensp;&ensp;1.继承Thread类。<br>&ensp;&ensp;2.实现Runnable接口。<br>&ensp;Java单根继承，不支持多继承。可以实现多个接口。<br>&ensp;一般推荐实现Runnable接口的方式。主要原因可以归结为:<br>    资源和线程分离，更加面向对象;可以做到资源共享</p>
+<hr>
+<p>&ensp;&ensp; <strong>继承Thread类：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"> public class ThreadTest extends Thread&#123;	</span><br><span class="line">    public void run()&#123;</span><br><span class="line">    	super.run();</span><br><span class="line">    	System.out.println(&quot;ThreadTest&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> public class Run &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">      ThreadTest test=new ThreadTest();</span><br><span class="line">      test.start();</span><br><span class="line">      System.out.println(&quot;end&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&ensp;运行结果：<br><img src="https://img-blog.csdnimg.cn/20190516153705868.png" alt="运行结果图"></p>
+<p>&ensp;&ensp;线程调用的随机性：线程是一个子任务，cpu以一个不确定方式或者以一个随机时间调用线程中的run方法。CPU执行哪个线程具有不确定性。Thread.java类中的start（方法通知“线程规划器”次线程已经准备就绪。等待调用线程对象的run()。这个过程就是让系统安排一个时间来调用Thread中的run()方法。也就是使得线程得到运行。启动线程具有异步效果。如果调用的不是start()而是run()就不是异步执行，而是同步。（线程启动顺序与start()执行顺序无关）此线程不交给线程规划器，而是由主线程调用run()，就是等run()代码执行完，才能执行后面代码。</p>
+<hr>
+<p>&ensp;&ensp; <strong>实现Runnable接口：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">public class ThreadRun implements Runnable&#123;</span><br><span class="line">	@Override</span><br><span class="line">	public void run() &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		System.out.println(&quot;Runnable&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class Run &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">      ThreadRun threadTest=new ThreadRun();</span><br><span class="line">      Thread thread=new Thread(threadTest);</span><br><span class="line">      thread.start();</span><br><span class="line">      System.out.println(&quot;end&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&ensp;&ensp;运行结果与继承方式一样。<br>&ensp;&ensp;Thread.java类有8个构造函数，其中两个构造函数Thread(Runnable target)和Thread(Runnable target,String name）可以传递Runnable接口，说明参数可以是Runnable接口的对象。Thread.java类也实现了Runnable接口，意味着构造函数不仅可以传入Runnable接口的对象，还可以传入Thread类对象。这样完全可以将一个Thread对象中的run()方法交由其他线程调用。</p>
+<h3 id="3"><a href="#3" class="headerlink" title="3."></a>3.</h3><p>&ensp;<strong>实例变量与线程安全：</strong><br>&ensp;&ensp;自定义线程间的实例变量：<br>&ensp;&ensp;1.共享数据<br>&ensp;&ensp;2.不共享数据<br>&ensp;<strong>不共享数据例子：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">public class MyTheard extends Thread&#123;</span><br><span class="line">	private int count=5;</span><br><span class="line">	public MyTheard(String name)&#123;</span><br><span class="line">		super();</span><br><span class="line">		this.setName(name);</span><br><span class="line">	&#125;</span><br><span class="line">    public void run()&#123;</span><br><span class="line">    	super.run();</span><br><span class="line">    	while(count&gt;0)&#123;</span><br><span class="line">    		count--;   		System.out.println(&quot;由&quot;+this.currentThread().getName()+&quot;计算,count&quot;+count);</span><br><span class="line">    	&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class Run &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		MyTheard a=new MyTheard(&quot;A&quot;);</span><br><span class="line">		MyTheard b=new MyTheard(&quot;B&quot;);</span><br><span class="line">		MyTheard c=new MyTheard(&quot;C&quot;);</span><br><span class="line">		a.start();</span><br><span class="line">		b.start();</span><br><span class="line">		c.start();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&ensp;运行结果：<br><img src="https://img-blog.csdnimg.cn/20190516165957449.png" alt="运行结果"><br>&ensp;&ensp; 此过程创建了三个线程。每个线程有自己的count变量。每个线程在自己的count变量上做操作。这种情况下线程不共享数据。不存在多个线程共享一个实例变量的情况。<br>&ensp;<strong>共享数据的例子：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">public class MyTheard extends Thread&#123;</span><br><span class="line">	private int count=5;</span><br><span class="line">    public void run()&#123;</span><br><span class="line">    	super.run();</span><br><span class="line">    		count--;		System.out.println(&quot;由&quot;+this.currentThread().getName()+&quot;计算,count&quot;+count);   	</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class Run &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		MyTheard thread=new MyTheard();</span><br><span class="line">		Thread a=new Thread(thread,&quot;A&quot;);</span><br><span class="line">		Thread b=new Thread(thread,&quot;B&quot;);</span><br><span class="line">		Thread c=new Thread(thread,&quot;C&quot;);</span><br><span class="line">		Thread d=new Thread(thread,&quot;D&quot;);</span><br><span class="line">		Thread e=new Thread(thread,&quot;E&quot;);</span><br><span class="line">        a.start();</span><br><span class="line">        b.start();</span><br><span class="line">        c.start();</span><br><span class="line">        d.start();</span><br><span class="line">        e.start();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&ensp;运行结果：<br><img src="https://img-blog.csdnimg.cn/20190516170736378.png" alt="运行结果"><br>&ensp;&ensp;分析结果：共享数据的情况就是多个线程访问同一个变量。C,D打印结果都是1，说明CD同时对count做了操作。多个线程同时对同一个变量做操作。一定会出现线程安全问题。这时，就需要线程同步来解决安全问题。</p>
 
       
     </div>
@@ -379,7 +458,7 @@
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java基础知识/">-Java基础知识</a></li></ul>
     </div>
 
       
@@ -437,6 +516,75 @@
 
   可以使用charAt(index)判断每一字符，等于空格，StringBuffer.append(&quot;%20&quot;),否则直接把这个index下的char存入结果。
 </code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public class Solution &#123;</span><br><span class="line">    public String replaceSpace(StringBuffer str) &#123;</span><br><span class="line">        StringBuffer newStr=new StringBuffer();</span><br><span class="line">        for(int i=0;i&lt;str.length();i++)&#123;</span><br><span class="line">            if(str.charAt(i)==&apos; &apos;)&#123;</span><br><span class="line">                newStr.append(&quot;%20&quot;);</span><br><span class="line">            &#125;</span><br><span class="line">            else</span><br><span class="line">              newStr.append(str.charAt(i));</span><br><span class="line">        &#125;</span><br><span class="line">        return newStr.toString();</span><br><span class="line">    	</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/技术学习/">技术学习</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-剑指Offer3" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/05/01/剑指Offer3/" class="article-date">
+      <time datetime="2019-05-01T15:47:44.000Z" itemprop="datePublished">2019-05-01</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/01/剑指Offer3/">剑指Offer3</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h5 id="题目描述：输入一个链表，按链表值从尾到头的顺序返回一个ArrayList。"><a href="#题目描述：输入一个链表，按链表值从尾到头的顺序返回一个ArrayList。" class="headerlink" title="题目描述：输入一个链表，按链表值从尾到头的顺序返回一个ArrayList。"></a>题目描述：输入一个链表，按链表值从尾到头的顺序返回一个ArrayList。</h5><h6 id="思路：原链表1→2→3→4-要求返回：ArrayList-4-3-2-1"><a href="#思路：原链表1→2→3→4-要求返回：ArrayList-4-3-2-1" class="headerlink" title="思路：原链表1→2→3→4  要求返回：ArrayList:{4,3,2,1}"></a>思路：原链表1→2→3→4  要求返回：ArrayList:{4,3,2,1}</h6><p>  1.使用链表反转：链表反转之后 从头遍历存入ArrayList</p>
+<p>  2.使用两个ArrayList:链表从头遍历存入ArrayList，ArrayList反序存入另一个ArrayList</p>
+<p>  3.利用栈的先进后出原则：链表元素入栈，栈元素出栈存入ArrayList</p>
+<h6 id="1-链表反转"><a href="#1-链表反转" class="headerlink" title="1.链表反转"></a>1.链表反转</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">/**</span><br><span class="line">*    public class ListNode &#123;</span><br><span class="line">*        int val;</span><br><span class="line">*        ListNode next = null;</span><br><span class="line">*</span><br><span class="line">*        ListNode(int val) &#123;</span><br><span class="line">*            this.val = val;</span><br><span class="line">*        &#125;</span><br><span class="line">*    &#125;</span><br><span class="line">*</span><br><span class="line">*/</span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">public class Solution &#123;</span><br><span class="line">    public ArrayList&lt;Integer&gt; printListFromTailToHead(ListNode listNode) &#123;</span><br><span class="line">        ListNode pre=null;</span><br><span class="line">        ArrayList arr=new ArrayList&lt;&gt;();</span><br><span class="line">        while(listNode!=null)&#123;</span><br><span class="line">          ListNode cur=listNode.next;</span><br><span class="line">          listNode.next=pre;</span><br><span class="line">          pre=listNode;</span><br><span class="line">          listNode=cur;</span><br><span class="line">        &#125;</span><br><span class="line">        while(pre!=null)&#123;</span><br><span class="line">            arr.add(pre.val);</span><br><span class="line">            pre=pre.next;</span><br><span class="line">        &#125;</span><br><span class="line">        return arr;        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h6 id="2-两个ArrayList："><a href="#2-两个ArrayList：" class="headerlink" title="2.两个ArrayList："></a>2.两个ArrayList：</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">*    public class ListNode &#123;</span><br><span class="line">*        int val;</span><br><span class="line">*        ListNode next = null;</span><br><span class="line">*</span><br><span class="line">*        ListNode(int val) &#123;</span><br><span class="line">*            this.val = val;</span><br><span class="line">*        &#125;</span><br><span class="line">*    &#125;</span><br><span class="line">*</span><br><span class="line">*/</span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">public class Solution &#123;</span><br><span class="line">    public ArrayList&lt;Integer&gt; printListFromTailToHead(ListNode listNode) &#123;</span><br><span class="line">         ArrayList&lt;Integer&gt; arrayList = new ArrayList&lt;Integer&gt;();</span><br><span class="line">         ArrayList&lt;Integer&gt; result = new ArrayList&lt;Integer&gt;();</span><br><span class="line">            while (listNode != null) &#123;</span><br><span class="line">                arrayList.add(listNode.val);</span><br><span class="line">                listNode = listNode.next;</span><br><span class="line">            &#125;</span><br><span class="line">          for(int i=arrayList.size()-1;i&gt;=0;i--)&#123;</span><br><span class="line">              result.add(arrayList.get(i));</span><br><span class="line">          &#125;</span><br><span class="line">          return result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h6 id="3-栈方式"><a href="#3-栈方式" class="headerlink" title="3.栈方式"></a>3.栈方式</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">*    public class ListNode &#123;</span><br><span class="line">*        int val;</span><br><span class="line">*        ListNode next = null;</span><br><span class="line">*</span><br><span class="line">*        ListNode(int val) &#123;</span><br><span class="line">*            this.val = val;</span><br><span class="line">*        &#125;</span><br><span class="line">*    &#125;</span><br><span class="line">*</span><br><span class="line">*/</span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">import java.util.Stack;</span><br><span class="line">public class Solution &#123;</span><br><span class="line">    public ArrayList&lt;Integer&gt; printListFromTailToHead(ListNode listNode) &#123;</span><br><span class="line">     </span><br><span class="line">         ArrayList&lt;Integer&gt; arrayList = new ArrayList&lt;Integer&gt;();</span><br><span class="line"></span><br><span class="line">            Stack&lt;Integer&gt; stack = new Stack&lt;&gt;();</span><br><span class="line">            while (listNode != null) &#123;</span><br><span class="line">                stack.push(listNode.val);</span><br><span class="line">                listNode = listNode.next;</span><br><span class="line">            &#125;</span><br><span class="line">            while (!stack.isEmpty()) &#123;</span><br><span class="line">                arrayList.add(stack.pop());</span><br><span class="line">            &#125;</span><br><span class="line">            return arrayList;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>

@@ -15,18 +15,22 @@
 
 
 
-<meta name="description" content="01题目描述在一个二维数组中（每个一维数组的长度相同），每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。 题解：二维数组是从左到右递增，从上到下增。所以用查找目标target与右上角或者左下角元素比较。以右上角为例，如果target大于右上角元素行向下移动，小于列左移。直到超出边界都没找到，返回FA">
-<meta name="keywords" content="算法">
+<meta name="description" content="1.&amp;ensp;线程与进程：&amp;ensp;&amp;ensp;一个进程至少有一个线程。线程是进程的执行单元，是进程内的可调度实体。 2.&amp;ensp;Java实现多线程的比较简单两种方式：&amp;ensp;&amp;ensp;1.继承Thread类。&amp;ensp;&amp;ensp;2.实现Runnable接口。&amp;ensp;Java单根继承，不支持多继承。可以实现多个接口。&amp;ensp;一般推荐实现Runnable接口的方式。主要原因">
+<meta name="keywords" content="-Java基础知识">
 <meta property="og:type" content="article">
-<meta property="og:title" content="剑指Offer1-2">
-<meta property="og:url" content="http://yoursite.com/2019/05/01/剑指Offer/index.html">
+<meta property="og:title" content="Java多线程（一）">
+<meta property="og:url" content="http://yoursite.com/2019/05/15/多线程/index.html">
 <meta property="og:site_name" content="A-Bubble">
-<meta property="og:description" content="01题目描述在一个二维数组中（每个一维数组的长度相同），每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。 题解：二维数组是从左到右递增，从上到下增。所以用查找目标target与右上角或者左下角元素比较。以右上角为例，如果target大于右上角元素行向下移动，小于列左移。直到超出边界都没找到，返回FA">
+<meta property="og:description" content="1.&amp;ensp;线程与进程：&amp;ensp;&amp;ensp;一个进程至少有一个线程。线程是进程的执行单元，是进程内的可调度实体。 2.&amp;ensp;Java实现多线程的比较简单两种方式：&amp;ensp;&amp;ensp;1.继承Thread类。&amp;ensp;&amp;ensp;2.实现Runnable接口。&amp;ensp;Java单根继承，不支持多继承。可以实现多个接口。&amp;ensp;一般推荐实现Runnable接口的方式。主要原因">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-17T17:51:28.215Z">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190516153705868.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190516165957449.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190516170736378.png">
+<meta property="og:updated_time" content="2019-05-18T08:06:07.477Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="剑指Offer1-2">
-<meta name="twitter:description" content="01题目描述在一个二维数组中（每个一维数组的长度相同），每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。 题解：二维数组是从左到右递增，从上到下增。所以用查找目标target与右上角或者左下角元素比较。以右上角为例，如果target大于右上角元素行向下移动，小于列左移。直到超出边界都没找到，返回FA">
+<meta name="twitter:title" content="Java多线程（一）">
+<meta name="twitter:description" content="1.&amp;ensp;线程与进程：&amp;ensp;&amp;ensp;一个进程至少有一个线程。线程是进程的执行单元，是进程内的可调度实体。 2.&amp;ensp;Java实现多线程的比较简单两种方式：&amp;ensp;&amp;ensp;1.继承Thread类。&amp;ensp;&amp;ensp;2.实现Runnable接口。&amp;ensp;Java单根继承，不支持多继承。可以实现多个接口。&amp;ensp;一般推荐实现Runnable接口的方式。主要原因">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190516153705868.png">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -58,7 +62,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>剑指Offer1-2 | A-Bubble</title>
+<title>Java多线程（一） | A-Bubble</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -259,11 +263,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我">
 </nav>
-      <div class="body-wrap"><article id="post-剑指Offer" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-多线程" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/05/01/剑指Offer/" class="article-date">
-      <time datetime="2019-05-01T15:47:44.000Z" itemprop="datePublished">2019-05-01</time>
+      <a href="/2019/05/15/多线程/" class="article-date">
+      <time datetime="2019-05-15T02:52:54.000Z" itemprop="datePublished">2019-05-15</time>
 </a>
 
 
@@ -278,7 +282,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      剑指Offer1-2
+      Java多线程（一）
     </h1>
   
 
@@ -293,7 +297,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java基础知识/">-Java基础知识</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -303,15 +307,22 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="01"><a href="#01" class="headerlink" title="01"></a>01</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>在一个二维数组中（每个一维数组的长度相同），每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。</p>
-<p>题解：二维数组是从左到右递增，从上到下增。所以用查找目标target与右上角或者左下角元素比较。以右上角为例，如果target大于右上角元素行向下移动，小于列左移。直到超出边界都没找到，返回FALSE。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public class Solution &#123;</span><br><span class="line">public boolean Find(int target, int [][] array) &#123;</span><br><span class="line">int col=arra[0].length-1;</span><br><span class="line">int row=0;</span><br><span class="line">while(row&lt;=array.length-1&amp;&amp;col&gt;=0)</span><br><span class="line">&#123;</span><br><span class="line">if(target==array[row][col])</span><br><span class="line">return true;</span><br><span class="line">else if(target&gt;array[row][col])</span><br><span class="line">row++;</span><br><span class="line">else</span><br><span class="line">col--;</span><br><span class="line">&#125;</span><br><span class="line">return false;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="02"><a href="#02" class="headerlink" title="02"></a>02</h3><h3 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h3><p>请实现一个函数，将一个字符串中的每个空格替换成“%20”。例如，当字符串为We Are Happy.则经过替换之后的字符串为We%20Are%20Happy。</p>
-<p>题解：需要判断每个字符还不是为空格，不是存到结果是的话，替换为%20存入。</p>
-<pre><code>所以：用StringBuffer格式保存新生成字符串。
-
-  可以使用charAt(index)判断每一字符，等于空格，StringBuffer.append(&quot;%20&quot;),否则直接把这个index下的char存入结果。
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public class Solution &#123;</span><br><span class="line">    public String replaceSpace(StringBuffer str) &#123;</span><br><span class="line">        StringBuffer newStr=new StringBuffer();</span><br><span class="line">        for(int i=0;i&lt;str.length();i++)&#123;</span><br><span class="line">            if(str.charAt(i)==&apos; &apos;)&#123;</span><br><span class="line">                newStr.append(&quot;%20&quot;);</span><br><span class="line">            &#125;</span><br><span class="line">            else</span><br><span class="line">              newStr.append(str.charAt(i));</span><br><span class="line">        &#125;</span><br><span class="line">        return newStr.toString();</span><br><span class="line">    	</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h2 id="1"><a href="#1" class="headerlink" title="1."></a>1.</h2><p>&ensp;线程与进程：<br>&ensp;&ensp;一个进程至少有一个线程。线程是进程的执行单元，是进程内的可调度实体。</p>
+<h2 id="2"><a href="#2" class="headerlink" title="2."></a>2.</h2><p>&ensp;Java实现多线程的比较简单两种方式：<br>&ensp;&ensp;1.继承Thread类。<br>&ensp;&ensp;2.实现Runnable接口。<br>&ensp;Java单根继承，不支持多继承。可以实现多个接口。<br>&ensp;一般推荐实现Runnable接口的方式。主要原因可以归结为:<br>    资源和线程分离，更加面向对象;可以做到资源共享</p>
+<hr>
+<p>&ensp;&ensp; <strong>继承Thread类：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"> public class ThreadTest extends Thread&#123;	</span><br><span class="line">    public void run()&#123;</span><br><span class="line">    	super.run();</span><br><span class="line">    	System.out.println(&quot;ThreadTest&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> public class Run &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">      ThreadTest test=new ThreadTest();</span><br><span class="line">      test.start();</span><br><span class="line">      System.out.println(&quot;end&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&ensp;运行结果：<br><img src="https://img-blog.csdnimg.cn/20190516153705868.png" alt="运行结果图"></p>
+<p>&ensp;&ensp;线程调用的随机性：线程是一个子任务，cpu以一个不确定方式或者以一个随机时间调用线程中的run方法。CPU执行哪个线程具有不确定性。Thread.java类中的start（方法通知“线程规划器”次线程已经准备就绪。等待调用线程对象的run()。这个过程就是让系统安排一个时间来调用Thread中的run()方法。也就是使得线程得到运行。启动线程具有异步效果。如果调用的不是start()而是run()就不是异步执行，而是同步。（线程启动顺序与start()执行顺序无关）此线程不交给线程规划器，而是由主线程调用run()，就是等run()代码执行完，才能执行后面代码。</p>
+<hr>
+<p>&ensp;&ensp; <strong>实现Runnable接口：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">public class ThreadRun implements Runnable&#123;</span><br><span class="line">	@Override</span><br><span class="line">	public void run() &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		System.out.println(&quot;Runnable&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class Run &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">      ThreadRun threadTest=new ThreadRun();</span><br><span class="line">      Thread thread=new Thread(threadTest);</span><br><span class="line">      thread.start();</span><br><span class="line">      System.out.println(&quot;end&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&ensp;&ensp;运行结果与继承方式一样。<br>&ensp;&ensp;Thread.java类有8个构造函数，其中两个构造函数Thread(Runnable target)和Thread(Runnable target,String name）可以传递Runnable接口，说明参数可以是Runnable接口的对象。Thread.java类也实现了Runnable接口，意味着构造函数不仅可以传入Runnable接口的对象，还可以传入Thread类对象。这样完全可以将一个Thread对象中的run()方法交由其他线程调用。</p>
+<h3 id="3"><a href="#3" class="headerlink" title="3."></a>3.</h3><p>&ensp;<strong>实例变量与线程安全：</strong><br>&ensp;&ensp;自定义线程间的实例变量：<br>&ensp;&ensp;1.共享数据<br>&ensp;&ensp;2.不共享数据<br>&ensp;<strong>不共享数据例子：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">public class MyTheard extends Thread&#123;</span><br><span class="line">	private int count=5;</span><br><span class="line">	public MyTheard(String name)&#123;</span><br><span class="line">		super();</span><br><span class="line">		this.setName(name);</span><br><span class="line">	&#125;</span><br><span class="line">    public void run()&#123;</span><br><span class="line">    	super.run();</span><br><span class="line">    	while(count&gt;0)&#123;</span><br><span class="line">    		count--;   		System.out.println(&quot;由&quot;+this.currentThread().getName()+&quot;计算,count&quot;+count);</span><br><span class="line">    	&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class Run &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		MyTheard a=new MyTheard(&quot;A&quot;);</span><br><span class="line">		MyTheard b=new MyTheard(&quot;B&quot;);</span><br><span class="line">		MyTheard c=new MyTheard(&quot;C&quot;);</span><br><span class="line">		a.start();</span><br><span class="line">		b.start();</span><br><span class="line">		c.start();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&ensp;运行结果：<br><img src="https://img-blog.csdnimg.cn/20190516165957449.png" alt="运行结果"><br>&ensp;&ensp; 此过程创建了三个线程。每个线程有自己的count变量。每个线程在自己的count变量上做操作。这种情况下线程不共享数据。不存在多个线程共享一个实例变量的情况。<br>&ensp;<strong>共享数据的例子：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">public class MyTheard extends Thread&#123;</span><br><span class="line">	private int count=5;</span><br><span class="line">    public void run()&#123;</span><br><span class="line">    	super.run();</span><br><span class="line">    		count--;		System.out.println(&quot;由&quot;+this.currentThread().getName()+&quot;计算,count&quot;+count);   	</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class Run &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		MyTheard thread=new MyTheard();</span><br><span class="line">		Thread a=new Thread(thread,&quot;A&quot;);</span><br><span class="line">		Thread b=new Thread(thread,&quot;B&quot;);</span><br><span class="line">		Thread c=new Thread(thread,&quot;C&quot;);</span><br><span class="line">		Thread d=new Thread(thread,&quot;D&quot;);</span><br><span class="line">		Thread e=new Thread(thread,&quot;E&quot;);</span><br><span class="line">        a.start();</span><br><span class="line">        b.start();</span><br><span class="line">        c.start();</span><br><span class="line">        d.start();</span><br><span class="line">        e.start();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&ensp;运行结果：<br><img src="https://img-blog.csdnimg.cn/20190516170736378.png" alt="运行结果"><br>&ensp;&ensp;分析结果：共享数据的情况就是多个线程访问同一个变量。C,D打印结果都是1，说明CD同时对count做了操作。多个线程同时对同一个变量做操作。一定会出现线程安全问题。这时，就需要线程同步来解决安全问题。</p>
 
       
     </div>
@@ -320,13 +331,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/05/01/剑指Offer/">剑指Offer1-2</a></p>
+        <p><span>本文标题:</span><a href="/2019/05/15/多线程/">Java多线程（一）</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">AY</a></p>
-        <p><span>发布时间:</span>2019-05-01, 23:47:44</p>
-        <p><span>最后更新:</span>2019-05-18, 01:51:28</p>
+        <p><span>发布时间:</span>2019-05-15, 10:52:54</p>
+        <p><span>最后更新:</span>2019-05-18, 16:06:07</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/05/01/剑指Offer/" title="剑指Offer1-2">http://yoursite.com/2019/05/01/剑指Offer/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/05/01/剑指Offer/　　作者: AY" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2019/05/15/多线程/" title="Java多线程（一）">http://yoursite.com/2019/05/15/多线程/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/05/15/多线程/　　作者: AY" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -339,15 +350,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2019/05/15/多线程/">
-                    Java多线程（一）
+                <a href="/2019/05/18/TBBT/">
+                    TBBT全剧终
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2019/05/01/剑指Offer3/">
-                    剑指Offer3
+                <a href="/2019/05/01/剑指Offer/">
+                    剑指Offer1-2
                 </a>
             </div>
         
@@ -359,7 +370,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#01"><span class="toc-number">1.</span> <span class="toc-text">01</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目描述"><span class="toc-number">1.1.</span> <span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#02"><span class="toc-number">1.2.</span> <span class="toc-text">02</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#题目描述-1"><span class="toc-number">1.3.</span> <span class="toc-text">题目描述</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1"><span class="toc-number">1.</span> <span class="toc-text">1.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2"><span class="toc-number">2.</span> <span class="toc-text">2.</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3"><span class="toc-number">2.1.</span> <span class="toc-text">3.</span></a></li></ol></li></ol>
         
     </div>
     <style>
@@ -395,7 +406,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"剑指Offer1-2　| A-Bubble　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Java多线程（一）　| A-Bubble　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -415,7 +426,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/05/15/多线程/" title="上一篇: Java多线程（一）">
+            <a href="/2019/05/18/TBBT/" title="上一篇: TBBT全剧终">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -423,7 +434,7 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2019/05/01/剑指Offer3/" title="下一篇: 剑指Offer3">
+            <a href="/2019/05/01/剑指Offer/" title="下一篇: 剑指Offer1-2">
                 <i class="fa fa-angle-right"></i>
             </a>
         

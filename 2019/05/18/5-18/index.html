@@ -15,17 +15,21 @@
 
 
 
-<meta name="description" content="17级小硕/Java&amp;amp;DL   Reading&amp;amp;美剧">
-<meta property="og:type" content="website">
-<meta property="og:title" content="about">
-<meta property="og:url" content="http://yoursite.com/about/index.html">
+<meta name="description" content="&amp;ensp; 非线程安全：多个线程同时对对象中的实例变量进行并发访问时发生。产生的后果是“脏读”。也就是读到的数据是被修改过的。&amp;ensp; 线程安全：获得的实例变量的值是经过同步处理的。 1.1 方法内的变量是线程安全&amp;ensp; 方法内的私有变量，不存在非线程安全问题。是方法内部的变量是私有的特性造成的。">
+<meta name="keywords" content="-Java基础知识">
+<meta property="og:type" content="article">
+<meta property="og:title" content="synchronized同步方法">
+<meta property="og:url" content="http://yoursite.com/2019/05/18/5-18/index.html">
 <meta property="og:site_name" content="A-Bubble">
-<meta property="og:description" content="17级小硕/Java&amp;amp;DL   Reading&amp;amp;美剧">
+<meta property="og:description" content="&amp;ensp; 非线程安全：多个线程同时对对象中的实例变量进行并发访问时发生。产生的后果是“脏读”。也就是读到的数据是被修改过的。&amp;ensp; 线程安全：获得的实例变量的值是经过同步处理的。 1.1 方法内的变量是线程安全&amp;ensp; 方法内的私有变量，不存在非线程安全问题。是方法内部的变量是私有的特性造成的。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-17T17:25:00.892Z">
+<meta property="og:image" content="http://yoursite.com/2019/05/18/5-18/1.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/05/18/5-18/2.jpg">
+<meta property="og:updated_time" content="2019-05-18T12:51:16.904Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="about">
-<meta name="twitter:description" content="17级小硕/Java&amp;amp;DL   Reading&amp;amp;美剧">
+<meta name="twitter:title" content="synchronized同步方法">
+<meta name="twitter:description" content="&amp;ensp; 非线程安全：多个线程同时对对象中的实例变量进行并发访问时发生。产生的后果是“脏读”。也就是读到的数据是被修改过的。&amp;ensp; 线程安全：获得的实例变量的值是经过同步处理的。 1.1 方法内的变量是线程安全&amp;ensp; 方法内的私有变量，不存在非线程安全问题。是方法内部的变量是私有的特性造成的。">
+<meta name="twitter:image" content="http://yoursite.com/2019/05/18/5-18/1.jpg">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -57,7 +61,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>about | A-Bubble</title>
+<title>synchronized同步方法 | A-Bubble</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -67,7 +71,7 @@
         fancybox: true,
         animate: true,
         isHome: false,
-        isPost: false,
+        isPost: true,
         isArchive: false,
         isTag: false,
         isCategory: false,
@@ -258,11 +262,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我">
 </nav>
-      <div class="body-wrap"><article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-5-18" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/about/index.html" class="article-date">
-      <time datetime="2019-05-17T15:42:24.000Z" itemprop="datePublished">2019-05-17</time>
+      <a href="/2019/05/18/5-18/" class="article-date">
+      <time datetime="2019-05-18T02:52:54.000Z" itemprop="datePublished">2019-05-18</time>
 </a>
 
 
@@ -277,7 +281,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      about
+      synchronized同步方法
     </h1>
   
 
@@ -285,8 +289,16 @@
       
       <div class="article-info article-info-post">
         
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/技术学习/">技术学习</a>
+    </div>
+
 
         
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java基础知识/">-Java基础知识</a></li></ul>
+    </div>
+
         <div class="clearfix"></div>
       </div>
       
@@ -294,26 +306,17 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <style>
-    .article-meta { display: none; }
-    #container .article .article-title { padding-right: 0; }
-    .article-header {
-        padding: 0;
-        padding-top: 26px;
-        border-left: none;
-        text-align: center;
-    }
-    .article-header:hover { border-left: none; }
-    .article-title { font-size: 1.6em }
-    .article-entry hr { margin: 0;}
-    .article-meta,
-    #container .article-info-post.article-info { display: none;}
-    #container .article .article-title { padding: 0; }
-</style>
-
-
-          
-        <p>   17级小硕/Java&amp;DL<br>   Reading&amp;美剧</p>
+        <p>&ensp; 非线程安全：多个线程同时对对象中的实例变量进行并发访问时发生。产生的后果是“脏读”。也就是读到的数据是被修改过的。<br>&ensp; 线程安全：获得的实例变量的值是经过同步处理的。</p>
+<h3 id="1-1-方法内的变量是线程安全"><a href="#1-1-方法内的变量是线程安全" class="headerlink" title="1.1 方法内的变量是线程安全"></a>1.1 方法内的变量是线程安全</h3><p>&ensp; 方法内的私有变量，不存在非线程安全问题。是方法内部的变量是私有的特性造成的。<br><a id="more"></a></p>
+<h3 id="1-2-Synchronized"><a href="#1-2-Synchronized" class="headerlink" title="1.2 Synchronized"></a>1.2 Synchronized</h3><p>&ensp;  Synchronized究竟锁住的是什么？锁到底长什么样？<br>&ensp;  锁本身是一个对象，可以是任何一个对象。Synchronized严格意义上是一个加锁操作。真正锁住的是一个对象。<br> &ensp; 互斥的基本条件是：共用一把锁   静态方法的锁是：所在类的Class对象，普通方法索的是this对象。<br>&ensp; Synchronized是可重入锁，可浅显的理解为同一个线程已经持有该锁的情况下可以再次获取锁，并且会在某个状态量上+1.<br>&ensp; 子类同步方法可以调用父类的同步方法吗？<br>&ensp; &ensp; 答案是：可以<br><img src="/2019/05/18/5-18/1.jpg" alt="子类同步方法调用父类同步方法"><br>子类对象初始化前，会调用父类的构造方法，结构上相当于包裹了一个父类对象，用的都是this对象锁。<br>&ensp;静态同步方法与非静态同步方法互斥吗？<br>&ensp; &ensp;不互斥；前边讲了互斥的基本条件是：共用一把锁。这里完全是两个锁。<br><img src="/2019/05/18/5-18/2.jpg" alt="静态同步方法与非静态同步方法"></p>
+<h4 id="大佬通过反编译解释的Synchronized原理"><a href="#大佬通过反编译解释的Synchronized原理" class="headerlink" title="大佬通过反编译解释的Synchronized原理"></a>大佬通过反编译解释的Synchronized原理</h4><p>原博客地址：<a href="http://www.cnblogs.com/paddix/p/5367116.html" target="_blank" rel="noopener">http://www.cnblogs.com/paddix/p/5367116.html</a></p>
+<h6 id="对代码块进行同步"><a href="#对代码块进行同步" class="headerlink" title="对代码块进行同步"></a>对代码块进行同步</h6><p>指令monitorenter ：<br>每个对象有一个监视器锁（monitor）。当monitor被占用时就会处于锁定状态，线程执行monitorenter指令时尝试获取monitor的所有权，过程如下：</p>
+<p>1、如果monitor的进入数为0，则该线程进入monitor，然后将进入数设置为1，该线程即为monitor的所有者。</p>
+<p>2、如果线程已经占有该monitor，只是重新进入，则进入monitor的进入数加1.</p>
+<p>3.如果其他线程已经占用了monitor，则该线程进入阻塞状态，直到monitor的进入数为0，再重新尝试获取monitor的所有权。<br>指令monitorexit：<br>执行monitorexit的线程必须是objectref所对应的monitor的所有者。</p>
+<p>指令执行时，monitor的进入数减1，如果减1后进入数为0，那线程退出monitor，不再是这个monitor的所有者。其他被这个monitor阻塞的线程可以尝试去获取这个 monitor 的所有权。 </p>
+<p>　　通过这两段描述，我们应该能很清楚的看出Synchronized的实现原理，Synchronized的语义底层是通过一个monitor的对象来完成，其实wait/notify等方法也依赖于monitor对象，这就是为什么只有在同步的块或者方法中才能调用wait/notify等方法，否则会抛出java.lang.IllegalMonitorStateException的异常的原因。</p>
+<h5 id="同步方法"><a href="#同步方法" class="headerlink" title="同步方法"></a>同步方法</h5><p>&ensp;&ensp;方法的同步并没有通过指令monitorenter和monitorexit来完成（理论上其实也可以通过这两条指令来实现），不过相对于普通方法，其常量池中多了ACC_SYNCHRONIZED标示符。JVM就是根据该标示符来实现方法的同步的：当方法调用时，调用指令将会检查方法的 ACC_SYNCHRONIZED 访问标志是否被设置，如果设置了，执行线程将先获取monitor，获取成功之后才能执行方法体，方法执行完后再释放monitor。在方法执行期间，其他任何线程都无法再获得同一个monitor对象。 其实本质上没有区别，只是方法的同步是一种隐式的方式来实现，无需通过字节码来完成。</p>
 
       
     </div>
@@ -321,10 +324,59 @@
   </div>
   
     
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2019/05/18/5-18/">synchronized同步方法</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">AY</a></p>
+        <p><span>发布时间:</span>2019-05-18, 10:52:54</p>
+        <p><span>最后更新:</span>2019-05-18, 20:51:16</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2019/05/18/5-18/" title="synchronized同步方法">http://yoursite.com/2019/05/18/5-18/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/05/18/5-18/　　作者: AY" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target="_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
 
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2019/05/18/TBBT/">
+                    TBBT全剧终
+                </a>
+            </div>
+        
+    </nav>
 
   
 </article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-方法内的变量是线程安全"><span class="toc-number">1.</span> <span class="toc-text">1.1 方法内的变量是线程安全</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-Synchronized"><span class="toc-number">2.</span> <span class="toc-text">1.2 Synchronized</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#大佬通过反编译解释的Synchronized原理"><span class="toc-number">2.1.</span> <span class="toc-text">大佬通过反编译解释的Synchronized原理</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#对代码块进行同步"><span class="toc-number">2.1.0.1.</span> <span class="toc-text">对代码块进行同步</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#同步方法"><span class="toc-number">2.1.1.</span> <span class="toc-text">同步方法</span></a></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
 
 
 
@@ -342,7 +394,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"about　| A-Bubble　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"synchronized同步方法　| A-Bubble　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -357,6 +409,24 @@
 
     
 
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2019/05/18/TBBT/" title="下一篇: TBBT全剧终">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/05/18/5-18/">synchronized同步方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/18/TBBT/">TBBT全剧终</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/15/多线程/">Java多线程（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/01/剑指Offer/">剑指Offer1-2</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/01/剑指Offer3/">剑指Offer3</a></li></ul>
 
 
 
