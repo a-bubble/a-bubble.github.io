@@ -15,18 +15,18 @@
 
 
 
-<meta name="description" content="用两个栈实现队列题目描述用两个栈来实现一个队列，完成队列的Push和Pop操作。 队列中的元素为int类型。 题目解析：队列的特点：先进先出栈的特点 ：后进先出所以需要两个栈来完成队列的先进先出。对于队列的push,先直接存入栈1。对于POP就需要将栈1的元素弹出，再压入栈2.然后栈2元素弹出。 代码实现： 12345678910111213141516171819202122import jav">
+<meta name="description" content="用两个栈实现队列题目描述用两个栈来实现一个队列，完成队列的Push和Pop操作。 队列中的元素为int类型。 题目解析：队列的特点：先进先出栈的特点 ：后进先出所以需要两个栈来完成队列的先进先出。对于队列的push,先直接存入栈1。对于POP就需要将栈1的元素弹出，再压入栈2.然后栈2元素弹出。">
 <meta name="keywords" content="算法,队列,栈">
 <meta property="og:type" content="article">
 <meta property="og:title" content="剑指Offer5">
 <meta property="og:url" content="http://yoursite.com/2019/05/19/offer5/index.html">
 <meta property="og:site_name" content="A-Bubble">
-<meta property="og:description" content="用两个栈实现队列题目描述用两个栈来实现一个队列，完成队列的Push和Pop操作。 队列中的元素为int类型。 题目解析：队列的特点：先进先出栈的特点 ：后进先出所以需要两个栈来完成队列的先进先出。对于队列的push,先直接存入栈1。对于POP就需要将栈1的元素弹出，再压入栈2.然后栈2元素弹出。 代码实现： 12345678910111213141516171819202122import jav">
+<meta property="og:description" content="用两个栈实现队列题目描述用两个栈来实现一个队列，完成队列的Push和Pop操作。 队列中的元素为int类型。 题目解析：队列的特点：先进先出栈的特点 ：后进先出所以需要两个栈来完成队列的先进先出。对于队列的push,先直接存入栈1。对于POP就需要将栈1的元素弹出，再压入栈2.然后栈2元素弹出。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-19T03:52:14.242Z">
+<meta property="og:updated_time" content="2019-05-19T03:55:40.742Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="剑指Offer5">
-<meta name="twitter:description" content="用两个栈实现队列题目描述用两个栈来实现一个队列，完成队列的Push和Pop操作。 队列中的元素为int类型。 题目解析：队列的特点：先进先出栈的特点 ：后进先出所以需要两个栈来完成队列的先进先出。对于队列的push,先直接存入栈1。对于POP就需要将栈1的元素弹出，再压入栈2.然后栈2元素弹出。 代码实现： 12345678910111213141516171819202122import jav">
+<meta name="twitter:description" content="用两个栈实现队列题目描述用两个栈来实现一个队列，完成队列的Push和Pop操作。 队列中的元素为int类型。 题目解析：队列的特点：先进先出栈的特点 ：后进先出所以需要两个栈来完成队列的先进先出。对于队列的push,先直接存入栈1。对于POP就需要将栈1的元素弹出，再压入栈2.然后栈2元素弹出。">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -304,8 +304,7 @@
       
           
         <h4 id="用两个栈实现队列"><a href="#用两个栈实现队列" class="headerlink" title="用两个栈实现队列"></a>用两个栈实现队列</h4><p>题目描述<br>用两个栈来实现一个队列，完成队列的Push和Pop操作。 队列中的元素为int类型。</p>
-<p>题目解析：<br>队列的特点：先进先出<br>栈的特点 ：后进先出<br>所以需要两个栈来完成队列的先进先出。对于队列的push,先直接存入栈1。对于POP就需要将栈1的元素弹出，再压入栈2.然后栈2元素弹出。</p>
-<p>代码实现：</p>
+<p>题目解析：<br>队列的特点：先进先出<br>栈的特点 ：后进先出<br>所以需要两个栈来完成队列的先进先出。对于队列的push,先直接存入栈1。对于POP就需要将栈1的元素弹出，再压入栈2.然后栈2元素弹出。<br><a id="more"></a><br>代码实现：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Stack;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    Stack&lt;Integer&gt; stack1 = <span class="keyword">new</span> Stack&lt;Integer&gt;();</span><br><span class="line">    Stack&lt;Integer&gt; stack2 = <span class="keyword">new</span> Stack&lt;Integer&gt;();</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">int</span> node)</span> </span>&#123;</span><br><span class="line">        stack1.push(node);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">pop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(stack2.size()==<span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">while</span>(!stack1.isEmpty())&#123;</span><br><span class="line">            stack2.push(stack1.pop());</span><br><span class="line">        &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(stack2.size()==<span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">       <span class="keyword">return</span> stack2.pop();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
@@ -317,7 +316,7 @@
         <p><span>本文标题:</span><a href="/2019/05/19/offer5/">剑指Offer5</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">AY</a></p>
         <p><span>发布时间:</span>2019-05-19, 11:47:02</p>
-        <p><span>最后更新:</span>2019-05-19, 11:52:14</p>
+        <p><span>最后更新:</span>2019-05-19, 11:55:40</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/05/19/offer5/" title="剑指Offer5">http://yoursite.com/2019/05/19/offer5/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/05/19/offer5/　　作者: AY" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
