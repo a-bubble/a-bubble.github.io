@@ -264,6 +264,75 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-Dqueue" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/05/20/Dqueue/" class="article-date">
+      <time datetime="2019-05-20T11:52:54.000Z" itemprop="datePublished">2019-05-20</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/20/Dqueue/">队列实现原理</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h5 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h5><p>队列的特点：<br>先进先出<br>队列头删除元素<br>队列尾插入元素</p>
+<p>Java中队列的实现：<br></p>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/技术学习/">技术学习</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java基础知识/">-Java基础知识</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2019/05/20/Dqueue/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-offer6" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -773,7 +842,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/02/DL01/">基于静态真的行识别</a>
+      <a class="article-title" href="/2019/05/02/DL01/">基于静态帧的行识别</a>
     </h1>
   
 
@@ -805,75 +874,6 @@
         <p class="article-more-link">
           <a href="/2019/05/02/DL01/#more">more >></a>
         </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-剑指Offer3" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/05/01/剑指Offer3/" class="article-date">
-      <time datetime="2019-05-01T15:47:44.000Z" itemprop="datePublished">2019-05-01</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/01/剑指Offer3/">剑指Offer3</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h5 id="题目描述：输入一个链表，按链表值从尾到头的顺序返回一个ArrayList。"><a href="#题目描述：输入一个链表，按链表值从尾到头的顺序返回一个ArrayList。" class="headerlink" title="题目描述：输入一个链表，按链表值从尾到头的顺序返回一个ArrayList。"></a>题目描述：输入一个链表，按链表值从尾到头的顺序返回一个ArrayList。</h5><h6 id="思路：原链表1→2→3→4-要求返回：ArrayList-4-3-2-1"><a href="#思路：原链表1→2→3→4-要求返回：ArrayList-4-3-2-1" class="headerlink" title="思路：原链表1→2→3→4  要求返回：ArrayList:{4,3,2,1}"></a>思路：原链表1→2→3→4  要求返回：ArrayList:{4,3,2,1}</h6><p>  1.使用链表反转：链表反转之后 从头遍历存入ArrayList</p>
-<p>  2.使用两个ArrayList:链表从头遍历存入ArrayList，ArrayList反序存入另一个ArrayList</p>
-<p>  3.利用栈的先进后出原则：链表元素入栈，栈元素出栈存入ArrayList</p>
-<h6 id="1-链表反转"><a href="#1-链表反转" class="headerlink" title="1.链表反转"></a>1.链表反转</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">/**</span><br><span class="line">*    public class ListNode &#123;</span><br><span class="line">*        int val;</span><br><span class="line">*        ListNode next = null;</span><br><span class="line">*</span><br><span class="line">*        ListNode(int val) &#123;</span><br><span class="line">*            this.val = val;</span><br><span class="line">*        &#125;</span><br><span class="line">*    &#125;</span><br><span class="line">*</span><br><span class="line">*/</span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">public class Solution &#123;</span><br><span class="line">    public ArrayList&lt;Integer&gt; printListFromTailToHead(ListNode listNode) &#123;</span><br><span class="line">        ListNode pre=null;</span><br><span class="line">        ArrayList arr=new ArrayList&lt;&gt;();</span><br><span class="line">        while(listNode!=null)&#123;</span><br><span class="line">          ListNode cur=listNode.next;</span><br><span class="line">          listNode.next=pre;</span><br><span class="line">          pre=listNode;</span><br><span class="line">          listNode=cur;</span><br><span class="line">        &#125;</span><br><span class="line">        while(pre!=null)&#123;</span><br><span class="line">            arr.add(pre.val);</span><br><span class="line">            pre=pre.next;</span><br><span class="line">        &#125;</span><br><span class="line">        return arr;        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h6 id="2-两个ArrayList："><a href="#2-两个ArrayList：" class="headerlink" title="2.两个ArrayList："></a>2.两个ArrayList：</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">*    public class ListNode &#123;</span><br><span class="line">*        int val;</span><br><span class="line">*        ListNode next = null;</span><br><span class="line">*</span><br><span class="line">*        ListNode(int val) &#123;</span><br><span class="line">*            this.val = val;</span><br><span class="line">*        &#125;</span><br><span class="line">*    &#125;</span><br><span class="line">*</span><br><span class="line">*/</span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">public class Solution &#123;</span><br><span class="line">    public ArrayList&lt;Integer&gt; printListFromTailToHead(ListNode listNode) &#123;</span><br><span class="line">         ArrayList&lt;Integer&gt; arrayList = new ArrayList&lt;Integer&gt;();</span><br><span class="line">         ArrayList&lt;Integer&gt; result = new ArrayList&lt;Integer&gt;();</span><br><span class="line">            while (listNode != null) &#123;</span><br><span class="line">                arrayList.add(listNode.val);</span><br><span class="line">                listNode = listNode.next;</span><br><span class="line">            &#125;</span><br><span class="line">          for(int i=arrayList.size()-1;i&gt;=0;i--)&#123;</span><br><span class="line">              result.add(arrayList.get(i));</span><br><span class="line">          &#125;</span><br><span class="line">          return result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h6 id="3-栈方式"><a href="#3-栈方式" class="headerlink" title="3.栈方式"></a>3.栈方式</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">*    public class ListNode &#123;</span><br><span class="line">*        int val;</span><br><span class="line">*        ListNode next = null;</span><br><span class="line">*</span><br><span class="line">*        ListNode(int val) &#123;</span><br><span class="line">*            this.val = val;</span><br><span class="line">*        &#125;</span><br><span class="line">*    &#125;</span><br><span class="line">*</span><br><span class="line">*/</span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">import java.util.Stack;</span><br><span class="line">public class Solution &#123;</span><br><span class="line">    public ArrayList&lt;Integer&gt; printListFromTailToHead(ListNode listNode) &#123;</span><br><span class="line">     </span><br><span class="line">         ArrayList&lt;Integer&gt; arrayList = new ArrayList&lt;Integer&gt;();</span><br><span class="line"></span><br><span class="line">            Stack&lt;Integer&gt; stack = new Stack&lt;&gt;();</span><br><span class="line">            while (listNode != null) &#123;</span><br><span class="line">                stack.push(listNode.val);</span><br><span class="line">                listNode = listNode.next;</span><br><span class="line">            &#125;</span><br><span class="line">            while (!stack.isEmpty()) &#123;</span><br><span class="line">                arrayList.add(stack.pop());</span><br><span class="line">            &#125;</span><br><span class="line">            return arrayList;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/技术学习/">技术学习</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-    </div>
-
       
       <div class="clearfix"></div>
     </div>
@@ -963,6 +963,10 @@
 
 
   
+  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
   
 </div>
       <footer id="footer">
