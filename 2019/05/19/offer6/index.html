@@ -15,18 +15,18 @@
 
 
 
-<meta name="description" content="旋转数组的最小数字题目描述：把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。 输入一个非减排序的数组的一个旋转，输出旋转数组的最小元素。 例如数组{3,4,5,1,2}为{1,2,3,4,5}的一个旋转，该数组的最小值为1。 NOTE：给出的所有元素都大于0，若数组大小为0，请返回0。">
-<meta name="keywords" content="算法,二分查找">
+<meta name="description" content="6 旋转数组的最小数字题目描述：把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。 输入一个非减排序的数组的一个旋转，输出旋转数组的最小元素。 例如数组{3,4,5,1,2}为{1,2,3,4,5}的一个旋转，该数组的最小值为1。 NOTE：给出的所有元素都大于0，若数组大小为0，请返回0。">
+<meta name="keywords" content="算法,二分查找,斐波那契数列">
 <meta property="og:type" content="article">
-<meta property="og:title" content="剑指Offer6">
+<meta property="og:title" content="剑指Offer6-7">
 <meta property="og:url" content="http://yoursite.com/2019/05/19/offer6/index.html">
 <meta property="og:site_name" content="A-Bubble">
-<meta property="og:description" content="旋转数组的最小数字题目描述：把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。 输入一个非减排序的数组的一个旋转，输出旋转数组的最小元素。 例如数组{3,4,5,1,2}为{1,2,3,4,5}的一个旋转，该数组的最小值为1。 NOTE：给出的所有元素都大于0，若数组大小为0，请返回0。">
+<meta property="og:description" content="6 旋转数组的最小数字题目描述：把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。 输入一个非减排序的数组的一个旋转，输出旋转数组的最小元素。 例如数组{3,4,5,1,2}为{1,2,3,4,5}的一个旋转，该数组的最小值为1。 NOTE：给出的所有元素都大于0，若数组大小为0，请返回0。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-19T14:54:48.458Z">
+<meta property="og:updated_time" content="2019-05-20T13:08:06.158Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="剑指Offer6">
-<meta name="twitter:description" content="旋转数组的最小数字题目描述：把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。 输入一个非减排序的数组的一个旋转，输出旋转数组的最小元素。 例如数组{3,4,5,1,2}为{1,2,3,4,5}的一个旋转，该数组的最小值为1。 NOTE：给出的所有元素都大于0，若数组大小为0，请返回0。">
+<meta name="twitter:title" content="剑指Offer6-7">
+<meta name="twitter:description" content="6 旋转数组的最小数字题目描述：把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。 输入一个非减排序的数组的一个旋转，输出旋转数组的最小元素。 例如数组{3,4,5,1,2}为{1,2,3,4,5}的一个旋转，该数组的最小值为1。 NOTE：给出的所有元素都大于0，若数组大小为0，请返回0。">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -58,7 +58,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>剑指Offer6 | A-Bubble</title>
+<title>剑指Offer6-7 | A-Bubble</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -188,7 +188,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java基础/">-Java基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java基础知识/">-Java基础知识</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/美剧/">-美剧</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二分查找/">二分查找</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二叉树/">二叉树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/栈/">栈</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/深度学习/">深度学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/队列/">队列</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java基础/">-Java基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java基础知识/">-Java基础知识</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/美剧/">-美剧</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二分查找/">二分查找</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二叉树/">二叉树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/斐波那契数列/">斐波那契数列</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/栈/">栈</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/深度学习/">深度学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/队列/">队列</a></li></ul>
                     </div>
                 </section>
                 
@@ -278,7 +278,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      剑指Offer6
+      剑指Offer6-7
     </h1>
   
 
@@ -293,7 +293,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/二分查找/">二分查找</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/二分查找/">二分查找</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/斐波那契数列/">斐波那契数列</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -303,11 +303,16 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h6 id="旋转数组的最小数字"><a href="#旋转数组的最小数字" class="headerlink" title="旋转数组的最小数字"></a>旋转数组的最小数字</h6><p>题目描述：<br>把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。 输入一个非减排序的数组的一个旋转，输出旋转数组的最小元素。 例如数组{3,4,5,1,2}为{1,2,3,4,5}的一个旋转，该数组的最小值为1。 NOTE：给出的所有元素都大于0，若数组大小为0，请返回0。<br><a id="more"></a><br>题目解析：<br>本题要求找到数组的最小元素。如果使用暴力方法遍历，时间复杂度是O(n)<br>题目给出的数组是一个旋转数组，算是半有序状态</p>
+        <h6 id="6-旋转数组的最小数字"><a href="#6-旋转数组的最小数字" class="headerlink" title="6 旋转数组的最小数字"></a>6 旋转数组的最小数字</h6><p>题目描述：<br>把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。 输入一个非减排序的数组的一个旋转，输出旋转数组的最小元素。 例如数组{3,4,5,1,2}为{1,2,3,4,5}的一个旋转，该数组的最小值为1。 NOTE：给出的所有元素都大于0，若数组大小为0，请返回0。<br><a id="more"></a><br>题目解析：<br>本题要求找到数组的最小元素。如果使用暴力方法遍历，时间复杂度是O(n)<br>题目给出的数组是一个旋转数组，算是半有序状态</p>
 <p>1.如果数组是{3,4,5,1,2}这种情况的话：考虑折半查找时间复杂度O(logN);<br>&ensp;&ensp;找到mid mid的值大于heigh 最小元素就在右侧    另一种情况，low对应元素的值小于mid的值 最小元素在左侧<br>2.考虑特殊情况{1,0,1,1,1}与{1,1,1,0,1} mid元素==high元素时候 high–</p>
 <p>伪代码：<br>初始：low=0 high=arr.length-1<br>while(low&lt;high)<br>     mid=low+(high-low)/2<br>     if(arr[mid]&gt;arr[heigh])<br>        low=mid+1<br>    if(arr[mid]==arr[heigh])<br>       high=high-1<br>     else<br>       high=mid<br>return arr[low]</p>
 <p>代码实现：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">minNumberInRotateArray</span><span class="params">(<span class="keyword">int</span> [] array)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> low = <span class="number">0</span> ; <span class="keyword">int</span> high = array.length - <span class="number">1</span>;  </span><br><span class="line">        <span class="keyword">while</span>(low &lt; high)&#123;</span><br><span class="line">            <span class="keyword">int</span> mid = low + (high - low) / <span class="number">2</span>;       </span><br><span class="line">            <span class="keyword">if</span>(array[mid] &gt; array[high])&#123;</span><br><span class="line">                low = mid + <span class="number">1</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(array[mid] == array[high])&#123;</span><br><span class="line">                high = high - <span class="number">1</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                high = mid;</span><br><span class="line">            &#125;  </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> array[low];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h6 id="7-斐波那契数列"><a href="#7-斐波那契数列" class="headerlink" title="7 斐波那契数列"></a>7 斐波那契数列</h6><p>题目描述<br>大家都知道斐波那契数列，现在要求输入一个整数n，请你输出斐波那契数列的第n项（从0开始，第0项为0）。<br>n&lt;=39<br>题目解析：<br>斐波那契数列：0 1 1 2 3 5 8…<br>1.直接使用递归形式 f(n)=f(n-1)+f(n-2)  这种方式大量重复计算 时间复杂度是指数形式增长<br>2.使用循环递归</p>
+<p>1.直接递归代码</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(n==<span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"><span class="keyword">if</span>(n==<span class="number">1</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line"><span class="keyword">return</span> Fibonacci(n<span class="number">-1</span>)+Fibonacci(n<span class="number">-2</span>);</span><br></pre></td></tr></table></figure>
+<p>2.循环递归</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    public int Fibonacci(int n) &#123;</span><br><span class="line">         <span class="keyword">if</span>(n&lt;=<span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>; </span><br><span class="line">        <span class="keyword">if</span>(n==<span class="number">1</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        int a=<span class="number">1</span>; int b=<span class="number">0</span>; int fib=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(int i=<span class="number">2</span>;i&lt;=n;i++) &#123; fib=a+b; b=a; a=fib; &#125; </span><br><span class="line">        <span class="keyword">return</span> fib;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -315,12 +320,12 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/05/19/offer6/">剑指Offer6</a></p>
+        <p><span>本文标题:</span><a href="/2019/05/19/offer6/">剑指Offer6-7</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">AY</a></p>
         <p><span>发布时间:</span>2019-05-19, 11:57:02</p>
-        <p><span>最后更新:</span>2019-05-19, 22:54:48</p>
+        <p><span>最后更新:</span>2019-05-20, 21:08:06</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/05/19/offer6/" title="剑指Offer6">http://yoursite.com/2019/05/19/offer6/</a>
+            <span>原始链接:</span><a class="post-url" href="/2019/05/19/offer6/" title="剑指Offer6-7">http://yoursite.com/2019/05/19/offer6/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/05/19/offer6/　　作者: AY" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -354,7 +359,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-6"><a class="toc-link" href="#旋转数组的最小数字"><span class="toc-number">1.</span> <span class="toc-text">旋转数组的最小数字</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-6"><a class="toc-link" href="#6-旋转数组的最小数字"><span class="toc-number">1.</span> <span class="toc-text">6 旋转数组的最小数字</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#7-斐波那契数列"><span class="toc-number">2.</span> <span class="toc-text">7 斐波那契数列</span></a></li></ol>
         
     </div>
     <style>
@@ -390,7 +395,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"剑指Offer6　| A-Bubble　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"剑指Offer6-7　| A-Bubble　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -424,7 +429,7 @@
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/05/20/Dqueue/">队列实现原理</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/19/offer6/">剑指Offer6</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/19/offer5/">剑指Offer5</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/18/Offer4/">剑指Offer4</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/18/5-18/">synchronized同步方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/18/TBBT/">TBBT全剧终</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/17/PV/">PV操作题目</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/15/多线程/">Java多线程（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/02/DL01/">基于静态帧的行识别</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/01/剑指Offer/">剑指Offer1-2</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/01/剑指Offer3/">剑指Offer3</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/05/20/Dqueue/">队列实现原理</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/19/offer6/">剑指Offer6-7</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/19/offer5/">剑指Offer5</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/18/Offer4/">剑指Offer4</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/18/5-18/">synchronized同步方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/18/TBBT/">TBBT全剧终</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/17/PV/">PV操作题目</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/15/多线程/">Java多线程（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/02/DL01/">基于静态帧的行识别</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/01/剑指Offer/">剑指Offer1-2</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/01/剑指Offer3/">剑指Offer3</a></li></ul>
 
 
 
