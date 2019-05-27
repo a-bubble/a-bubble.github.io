@@ -15,18 +15,18 @@
 
 
 
-<meta name="description" content="题目描述：输入一个链表，按链表值从尾到头的顺序返回一个ArrayList。思路：原链表1→2→3→4  要求返回：ArrayList:{4,3,2,1}  1.使用链表反转：链表反转之后 从头遍历存入ArrayList   2.使用两个ArrayList:链表从头遍历存入ArrayList，ArrayList反序存入另一个ArrayList   3.利用栈的先进后出原则：链表元素入栈，栈元素出栈存">
-<meta name="keywords" content="算法">
+<meta name="description" content="跳台阶题目描述一只青蛙一次可以跳上1级台阶，也可以跳上2级。求该青蛙跳上一个n级的台阶总共有多少种跳法（先后次序不同算不同的结果）。">
+<meta name="keywords" content="算法,递归">
 <meta property="og:type" content="article">
-<meta property="og:title" content="剑指Offer3">
-<meta property="og:url" content="http://yoursite.com/2019/05/01/剑指Offer3/index.html">
+<meta property="og:title" content="剑指offer8-9">
+<meta property="og:url" content="http://yoursite.com/2019/05/27/offer8/index.html">
 <meta property="og:site_name" content="A-Bubble">
-<meta property="og:description" content="题目描述：输入一个链表，按链表值从尾到头的顺序返回一个ArrayList。思路：原链表1→2→3→4  要求返回：ArrayList:{4,3,2,1}  1.使用链表反转：链表反转之后 从头遍历存入ArrayList   2.使用两个ArrayList:链表从头遍历存入ArrayList，ArrayList反序存入另一个ArrayList   3.利用栈的先进后出原则：链表元素入栈，栈元素出栈存">
+<meta property="og:description" content="跳台阶题目描述一只青蛙一次可以跳上1级台阶，也可以跳上2级。求该青蛙跳上一个n级的台阶总共有多少种跳法（先后次序不同算不同的结果）。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-18T02:46:17.105Z">
+<meta property="og:updated_time" content="2019-05-27T14:02:21.603Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="剑指Offer3">
-<meta name="twitter:description" content="题目描述：输入一个链表，按链表值从尾到头的顺序返回一个ArrayList。思路：原链表1→2→3→4  要求返回：ArrayList:{4,3,2,1}  1.使用链表反转：链表反转之后 从头遍历存入ArrayList   2.使用两个ArrayList:链表从头遍历存入ArrayList，ArrayList反序存入另一个ArrayList   3.利用栈的先进后出原则：链表元素入栈，栈元素出栈存">
+<meta name="twitter:title" content="剑指offer8-9">
+<meta name="twitter:description" content="跳台阶题目描述一只青蛙一次可以跳上1级台阶，也可以跳上2级。求该青蛙跳上一个n级的台阶总共有多少种跳法（先后次序不同算不同的结果）。">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -58,7 +58,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>剑指Offer3 | A-Bubble</title>
+<title>剑指offer8-9 | A-Bubble</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -259,11 +259,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我">
 </nav>
-      <div class="body-wrap"><article id="post-剑指Offer3" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-offer8" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/05/01/剑指Offer3/" class="article-date">
-      <time datetime="2019-05-01T15:47:44.000Z" itemprop="datePublished">2019-05-01</time>
+      <a href="/2019/05/27/offer8/" class="article-date">
+      <time datetime="2019-05-27T13:44:43.000Z" itemprop="datePublished">2019-05-27</time>
 </a>
 
 
@@ -278,7 +278,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      剑指Offer3
+      剑指offer8-9
     </h1>
   
 
@@ -293,7 +293,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/递归/">递归</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -303,13 +303,11 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h5 id="题目描述：输入一个链表，按链表值从尾到头的顺序返回一个ArrayList。"><a href="#题目描述：输入一个链表，按链表值从尾到头的顺序返回一个ArrayList。" class="headerlink" title="题目描述：输入一个链表，按链表值从尾到头的顺序返回一个ArrayList。"></a>题目描述：输入一个链表，按链表值从尾到头的顺序返回一个ArrayList。</h5><h6 id="思路：原链表1→2→3→4-要求返回：ArrayList-4-3-2-1"><a href="#思路：原链表1→2→3→4-要求返回：ArrayList-4-3-2-1" class="headerlink" title="思路：原链表1→2→3→4  要求返回：ArrayList:{4,3,2,1}"></a>思路：原链表1→2→3→4  要求返回：ArrayList:{4,3,2,1}</h6><p>  1.使用链表反转：链表反转之后 从头遍历存入ArrayList</p>
-<p>  2.使用两个ArrayList:链表从头遍历存入ArrayList，ArrayList反序存入另一个ArrayList</p>
-<p>  3.利用栈的先进后出原则：链表元素入栈，栈元素出栈存入ArrayList</p>
-<h6 id="1-链表反转"><a href="#1-链表反转" class="headerlink" title="1.链表反转"></a>1.链表反转</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">/**</span><br><span class="line">*    public class ListNode &#123;</span><br><span class="line">*        int val;</span><br><span class="line">*        ListNode next = null;</span><br><span class="line">*</span><br><span class="line">*        ListNode(int val) &#123;</span><br><span class="line">*            this.val = val;</span><br><span class="line">*        &#125;</span><br><span class="line">*    &#125;</span><br><span class="line">*</span><br><span class="line">*/</span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">public class Solution &#123;</span><br><span class="line">    public ArrayList&lt;Integer&gt; printListFromTailToHead(ListNode listNode) &#123;</span><br><span class="line">        ListNode pre=null;</span><br><span class="line">        ArrayList arr=new ArrayList&lt;&gt;();</span><br><span class="line">        while(listNode!=null)&#123;</span><br><span class="line">          ListNode cur=listNode.next;</span><br><span class="line">          listNode.next=pre;</span><br><span class="line">          pre=listNode;</span><br><span class="line">          listNode=cur;</span><br><span class="line">        &#125;</span><br><span class="line">        while(pre!=null)&#123;</span><br><span class="line">            arr.add(pre.val);</span><br><span class="line">            pre=pre.next;</span><br><span class="line">        &#125;</span><br><span class="line">        return arr;        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h6 id="2-两个ArrayList："><a href="#2-两个ArrayList：" class="headerlink" title="2.两个ArrayList："></a>2.两个ArrayList：</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">*    public class ListNode &#123;</span><br><span class="line">*        int val;</span><br><span class="line">*        ListNode next = null;</span><br><span class="line">*</span><br><span class="line">*        ListNode(int val) &#123;</span><br><span class="line">*            this.val = val;</span><br><span class="line">*        &#125;</span><br><span class="line">*    &#125;</span><br><span class="line">*</span><br><span class="line">*/</span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">public class Solution &#123;</span><br><span class="line">    public ArrayList&lt;Integer&gt; printListFromTailToHead(ListNode listNode) &#123;</span><br><span class="line">         ArrayList&lt;Integer&gt; arrayList = new ArrayList&lt;Integer&gt;();</span><br><span class="line">         ArrayList&lt;Integer&gt; result = new ArrayList&lt;Integer&gt;();</span><br><span class="line">            while (listNode != null) &#123;</span><br><span class="line">                arrayList.add(listNode.val);</span><br><span class="line">                listNode = listNode.next;</span><br><span class="line">            &#125;</span><br><span class="line">          for(int i=arrayList.size()-1;i&gt;=0;i--)&#123;</span><br><span class="line">              result.add(arrayList.get(i));</span><br><span class="line">          &#125;</span><br><span class="line">          return result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h6 id="3-栈方式"><a href="#3-栈方式" class="headerlink" title="3.栈方式"></a>3.栈方式</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">*    public class ListNode &#123;</span><br><span class="line">*        int val;</span><br><span class="line">*        ListNode next = null;</span><br><span class="line">*</span><br><span class="line">*        ListNode(int val) &#123;</span><br><span class="line">*            this.val = val;</span><br><span class="line">*        &#125;</span><br><span class="line">*    &#125;</span><br><span class="line">*</span><br><span class="line">*/</span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">import java.util.Stack;</span><br><span class="line">public class Solution &#123;</span><br><span class="line">    public ArrayList&lt;Integer&gt; printListFromTailToHead(ListNode listNode) &#123;</span><br><span class="line">     </span><br><span class="line">         ArrayList&lt;Integer&gt; arrayList = new ArrayList&lt;Integer&gt;();</span><br><span class="line"></span><br><span class="line">            Stack&lt;Integer&gt; stack = new Stack&lt;&gt;();</span><br><span class="line">            while (listNode != null) &#123;</span><br><span class="line">                stack.push(listNode.val);</span><br><span class="line">                listNode = listNode.next;</span><br><span class="line">            &#125;</span><br><span class="line">            while (!stack.isEmpty()) &#123;</span><br><span class="line">                arrayList.add(stack.pop());</span><br><span class="line">            &#125;</span><br><span class="line">            return arrayList;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+        <h6 id="跳台阶"><a href="#跳台阶" class="headerlink" title="跳台阶"></a>跳台阶</h6><p>题目描述<br>一只青蛙一次可以跳上1级台阶，也可以跳上2级。求该青蛙跳上一个n级的台阶总共有多少种跳法（先后次序不同算不同的结果）。<br><a id="more"></a><br>分析：<br>1.如果只有1级台阶，那显然只有一种跳法<br>2.如果有2级台阶，那么就有2种跳法，一种是分2次跳。每次跳1级，另一种就是一次跳2级<br>3.如果台阶级数大于2，设为n的话，这时我们把n级台阶时的跳法看成n的函数，记为,第一次跳的时候有2种不同的选择：一是第一次跳一级，此时跳法的数目等于后面剩下的n-1级台阶的跳法数目，即为f(n-1)二是第一次跳二级，此时跳法的数目等于后面剩下的n-2级台阶的跳法数目，即为f(n-2),因此n级台阶的不同跳法的总数为f(n)=f(n-1)+f(n-2) 是斐波那契数列。<br>如果使用递归的方式的话吗，如果要求f(9)要求f(8)+f(7)求f(8)又要求f(7)+f(6)所以，存在重复计算<br>使用循环的方式，就是从下往上计算，时间复杂度O(n)<br>代码实现：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public class Solution &#123;</span><br><span class="line">    public int JumpFloor(int target) &#123;</span><br><span class="line">        if(target==2)</span><br><span class="line">            return 2;</span><br><span class="line">        if(target==1)</span><br><span class="line">            return 1;</span><br><span class="line">        int count=0;int n1=1; int n2=2;</span><br><span class="line">        for(int i=3;i&lt;=target;i++)&#123;</span><br><span class="line">            count=n1+n2;</span><br><span class="line">            n1=n2;</span><br><span class="line">            n2=count;</span><br><span class="line">        &#125;</span><br><span class="line">        return count;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h6 id="变态跳台阶"><a href="#变态跳台阶" class="headerlink" title="变态跳台阶"></a>变态跳台阶</h6><p>题目描述<br>一只青蛙一次可以跳上1级台阶，也可以跳上2级……它也可以跳上n级。求该青蛙跳上一个n级的台阶总共有多少种跳法。<br>解析：<br>f(0) = 1<br>f(1) = 1<br>f(2) = f(2-1)+f(2-1) #跳一步回到f(1)问题，跳两步回到f(0)问题<br>f(3) = f(3-1)+f(3-2)+f(3-3)<br>…<br>f(n-1) = f((n-1)-1)+f((n-1)-2)+…+f((n-1)-(n-1)) = f(n-2)+f(n-3)+…+f(0) #注意我高亮的部分<br>f(n) = f(n-1)+f(n-2)+f(n-3)…+f(0) = f(n-1)+f(n-1) = 2*f(n-1) </p>
+<p>代码实现：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    public int JumpFloorII(int target) &#123;</span><br><span class="line">        <span class="keyword">if</span>(target&lt;=<span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(target==<span class="number">1</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span> <span class="number">2</span>*JumpFloorII(target<span class="number">-1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -317,13 +315,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/05/01/剑指Offer3/">剑指Offer3</a></p>
+        <p><span>本文标题:</span><a href="/2019/05/27/offer8/">剑指offer8-9</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">AY</a></p>
-        <p><span>发布时间:</span>2019-05-01, 23:47:44</p>
-        <p><span>最后更新:</span>2019-05-18, 10:46:17</p>
+        <p><span>发布时间:</span>2019-05-27, 21:44:43</p>
+        <p><span>最后更新:</span>2019-05-27, 22:02:21</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/05/01/剑指Offer3/" title="剑指Offer3">http://yoursite.com/2019/05/01/剑指Offer3/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/05/01/剑指Offer3/　　作者: AY" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2019/05/27/offer8/" title="剑指offer8-9">http://yoursite.com/2019/05/27/offer8/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/05/27/offer8/　　作者: AY" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -335,16 +333,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2019/05/02/DL01/">
-                    基于静态帧的行识别
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2019/05/01/剑指Offer/">
-                    剑指Offer1-2
+                <a href="/2019/05/21/Java/">
+                    Java基础知识
                 </a>
             </div>
         
@@ -356,7 +348,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#题目描述：输入一个链表，按链表值从尾到头的顺序返回一个ArrayList。"><span class="toc-number">1.</span> <span class="toc-text">题目描述：输入一个链表，按链表值从尾到头的顺序返回一个ArrayList。</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#思路：原链表1→2→3→4-要求返回：ArrayList-4-3-2-1"><span class="toc-number">1.1.</span> <span class="toc-text">思路：原链表1→2→3→4  要求返回：ArrayList:{4,3,2,1}</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#1-链表反转"><span class="toc-number">1.2.</span> <span class="toc-text">1.链表反转</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2-两个ArrayList："><span class="toc-number">1.3.</span> <span class="toc-text">2.两个ArrayList：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#3-栈方式"><span class="toc-number">1.4.</span> <span class="toc-text">3.栈方式</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-6"><a class="toc-link" href="#跳台阶"><span class="toc-number">1.</span> <span class="toc-text">跳台阶</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#变态跳台阶"><span class="toc-number">2.</span> <span class="toc-text">变态跳台阶</span></a></li></ol>
         
     </div>
     <style>
@@ -392,7 +384,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"剑指Offer3　| A-Bubble　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"剑指offer8-9　| A-Bubble　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -412,15 +404,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/05/02/DL01/" title="上一篇: 基于静态帧的行识别">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2019/05/01/剑指Offer/" title="下一篇: 剑指Offer1-2">
+            <a href="/2019/05/21/Java/" title="下一篇: Java基础知识">
                 <i class="fa fa-angle-right"></i>
             </a>
         
