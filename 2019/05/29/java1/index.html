@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="author" content="AY">
+
+
+
+<meta name="description" content="管道：就是连通两个线程通信的缓冲区1.基于输入输出流&amp;ensp;这种情况就是阻塞的，单向的。写进程通过管道输出流把数据写入管道，读进程通过管道输入流从管道拿数据所谓阻塞：当管道输出流write()导致管道缓冲区变满时，管道的write()调用将默认的被阻塞，等待缓冲区的数据被读取。同样的读进程也可能工作得比写进程块。当所有当前进程数据被读取时，管道变空。当这种情况发生时，一个随后的read()调用">
+<meta name="keywords" content="Java基础,多线程,线程通信">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java多线程">
+<meta property="og:url" content="http://yoursite.com/2019/05/29/java1/index.html">
+<meta property="og:site_name" content="A-Bubble">
+<meta property="og:description" content="管道：就是连通两个线程通信的缓冲区1.基于输入输出流&amp;ensp;这种情况就是阻塞的，单向的。写进程通过管道输出流把数据写入管道，读进程通过管道输入流从管道拿数据所谓阻塞：当管道输出流write()导致管道缓冲区变满时，管道的write()调用将默认的被阻塞，等待缓冲区的数据被读取。同样的读进程也可能工作得比写进程块。当所有当前进程数据被读取时，管道变空。当这种情况发生时，一个随后的read()调用">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2019/05/29/java1/微信图片_20190529110201.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/29/java1/20180502092958420.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/29/java1/20180502093837485.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/29/java1/20180502094127839.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/29/java1/20180502094310309.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/29/java1/20180502094632478.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/29/java1/20180502094759872.png">
+<meta property="og:updated_time" content="2019-05-29T09:34:19.681Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java多线程">
+<meta name="twitter:description" content="管道：就是连通两个线程通信的缓冲区1.基于输入输出流&amp;ensp;这种情况就是阻塞的，单向的。写进程通过管道输出流把数据写入管道，读进程通过管道输入流从管道拿数据所谓阻塞：当管道输出流write()导致管道缓冲区变满时，管道的write()调用将默认的被阻塞，等待缓冲区的数据被读取。同样的读进程也可能工作得比写进程块。当所有当前进程数据被读取时，管道变空。当这种情况发生时，一个随后的read()调用">
+<meta name="twitter:image" content="http://yoursite.com/2019/05/29/java1/微信图片_20190529110201.png">
+
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="A-Bubble" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>Java多线程 | A-Bubble</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head></html>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/timg.jpg" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">AY</a></h1>
+        </hgroup>
+
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false">
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class="no-result">No results found <i class="fa fa-spinner fa-pulse"></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa GitHub" href="https://github.com/a-bubble" title="GitHub"></a>
+                            
+                                <a class="fa CSDN" href="https://blog.csdn.net/weixin_40119167" title="CSDN"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java基础/">-Java基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java基础知识/">-Java基础知识</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/美剧/">-美剧</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java基础/">Java基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二分查找/">二分查找</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二叉树/">二叉树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基础知识/">基础知识</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/多线程/">多线程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/斐波那契数列/">斐波那契数列</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/栈/">栈</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/深度学习/">深度学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/线程通信/">线程通信</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/递归/">递归</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/队列/">队列</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">挣扎在毕业线上的冒个泡儿同学</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">AY</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/timg.jpg" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">AY</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/a-bubble" title="GitHub"></a>
+                            
+                                <a class="fa CSDN" target="_blank" href="https://blog.csdn.net/weixin_40119167" title="CSDN"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我">
+</nav>
+      <div class="body-wrap"><article id="post-java1" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/05/29/java1/" class="article-date">
+      <time datetime="2019-05-29T01:59:02.000Z" itemprop="datePublished">2019-05-29</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Java多线程
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java基础/">Java基础</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/多线程/">多线程</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/线程通信/">线程通信</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>管道：就是连通两个线程通信的缓冲区<br>1.基于输入输出流<br>&ensp;这种情况就是阻塞的，单向的。<br>写进程通过管道输出流把数据写入管道，读进程通过管道输入流从管道拿数据<br>所谓阻塞：当管道输出流write()导致管道缓冲区变满时，管道的write()调用将默认的被阻塞，等待缓冲区的数据被读取。同样的读进程也可能工作得比写进程块。当所有当前进程数据被读取时，管道变空。当这种情况发生时，一个随后的read()调用将默认被阻塞，等待缓冲区数据，这解决了read()调用返回文件结束的问题<br>管道数据流是单向的，数据只能从进程（线程）的一端流向另一个进程（线程）的另一端。如果要进行双向通信 就要建立两个管道。<br>管道读数据是一次性操作，数据一旦被读，就会被从管道中抛弃，释放更多空间以便写入。<br>管道输出流或者管道输入流的提前关闭，不会影响到对端流。比如输出流提前结束，输入流不会产生异常；输入流的提前结束也不会影响到输出流。管道通信结束后一定要关闭输出流。输入流通过read（是否返回null来判断管道通信是否结束）</p>
+<p>实现代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Writer</span> <span class="keyword">extends</span> <span class="title">Thread</span></span>&#123;</span><br><span class="line">	private PipedOutputStream  pos;</span><br><span class="line">	public Writer(PipedOutputStream pos)&#123;</span><br><span class="line">		<span class="keyword">this</span>.pos=pos;</span><br><span class="line">	&#125;</span><br><span class="line">	public <span class="keyword">void</span> run()&#123;</span><br><span class="line">		PrintStream p=<span class="keyword">new</span> PrintStream(pos);</span><br><span class="line">		<span class="keyword">for</span>(int i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)&#123;</span><br><span class="line">			<span class="keyword">try</span>&#123;</span><br><span class="line">				Thread.currentThread().sleep(<span class="number">250</span>);</span><br><span class="line">			&#125;<span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line">				</span><br><span class="line">			&#125;</span><br><span class="line">			p.println(i);</span><br><span class="line">			System.out.println(<span class="string">"write +"</span>+i);</span><br><span class="line">		&#125;</span><br><span class="line">		p.flush();</span><br><span class="line">		p.close();</span><br><span class="line">		System.out.println(<span class="string">"over"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Reader</span> <span class="keyword">extends</span> <span class="title">Thread</span></span>&#123;</span><br><span class="line">	private PipedInputStream pis;</span><br><span class="line">	private <span class="built_in">String</span> line;</span><br><span class="line">	public Reader(PipedInputStream pis)&#123;</span><br><span class="line">		<span class="keyword">this</span>.pis=pis;</span><br><span class="line">	&#125;</span><br><span class="line">	public <span class="keyword">void</span> run()&#123;</span><br><span class="line">		BufferedReader b=<span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(pis));</span><br><span class="line">		<span class="keyword">try</span>&#123;</span><br><span class="line">			<span class="keyword">do</span> &#123;</span><br><span class="line">				line=b.readLine();</span><br><span class="line">				<span class="keyword">if</span>(line!=<span class="literal">null</span>)&#123;</span><br><span class="line">					<span class="keyword">if</span> (line != <span class="literal">null</span>)</span><br><span class="line">						System.out.println(<span class="string">"Read:"</span> + line);</span><br><span class="line">					<span class="keyword">else</span></span><br><span class="line">						System.out.println(<span class="string">"done"</span>);</span><br><span class="line">					Thread.currentThread().sleep(<span class="number">500</span>);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;<span class="keyword">while</span>(b!=<span class="literal">null</span>&amp;&amp;line!=<span class="literal">null</span>);</span><br><span class="line">			</span><br><span class="line">		&#125;<span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line">			</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">public <span class="class"><span class="keyword">class</span> <span class="title">ThreadPipe</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	public <span class="keyword">static</span> <span class="keyword">void</span> main(<span class="built_in">String</span>[] args) throws IOException&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		PipedOutputStream  pos=<span class="keyword">new</span> PipedOutputStream();</span><br><span class="line">		PipedInputStream pis=<span class="keyword">new</span> PipedInputStream(pos);</span><br><span class="line">		<span class="keyword">new</span> Writer(pos).start();</span><br><span class="line">		<span class="keyword">new</span> Reader(pis).start();</span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果：<br><img src="/2019/05/29/java1/微信图片_20190529110201.png" alt="enter description here"></p>
+<h6 id="Join-方法："><a href="#Join-方法：" class="headerlink" title="Join()方法："></a>Join()方法：</h6><p>join()通常在主线程里调用。有时候主线程要比子线程提前结。当主线程main()想等子线程t结束之后再结束，就要使用t.jion().所以，join的作用：阻塞调用该方法的线程（main)，直至t完成，此进程再继续执行。join（）相当于将线程加入等待队列。<br>join()方法实现是通过wait()（小提示：Object 提供的方法）。 当main线程调用threadA.join时候，main线程会获得线程对象threadA的锁（wait 意味着拿到该对象的锁),调用该对象的wait(等待时间)，直到该对象唤醒main线程 （也就是子线程threadA执行完毕退出的时候）<br>总结</p>
+<p>首先join() 是一个synchronized方法， 里面调用了wait()，这个过程的目的是让持有这个同步锁的线程进入等待，那么谁持有了这个同步锁呢？答案是主线程，因为主线程调用了threadA.join()方法，相当于在threadA.join()代码这块写了一个同步代码块，谁去执行了这段代码呢，是主线程，所以主线程被wait()了。然后在子线程threadA执行完毕之后，JVM会调用lock.notify_all(thread);唤醒持有threadA这个对象锁的线程，也就是主线程，会继续执行。<br>参考：非常清晰！<a href="https://blog.csdn.net/u010983881/article/details/80257703" target="_blank" rel="noopener">https://blog.csdn.net/u010983881/article/details/80257703</a></p>
+<p>join()与sleep()比较：<br>实质上就是wait()与sleep()比较：<br> （1）属于不同的两个类，sleep()方法是线程类（Thread）的静态方法，wait()方法是Object类里的方法。</p>
+<p>  （2）sleep()方法不会释放锁，wait()方法释放对象锁。</p>
+<p>   （3）sleep()方法可以在任何地方使用，wait()方法则只能在同步方法或同步块中使用。</p>
+<p>  （4）sleep()必须捕获异常，wait()方法、notify()方法和notiftAll()方法不需要捕获异常。</p>
+<p>   （5）sleep()使线程进入阻塞状态（线程睡眠），wait()方法使线程进入等待队列（线程挂起），也就是阻塞类别不同。</p>
+<h5 id="ThreadLocal类"><a href="#ThreadLocal类" class="headerlink" title="ThreadLocal类"></a>ThreadLocal类</h5><p>   用于存储每个线程自己的私有数据<br>   get()方法获取值，set方法设置值<br>   当LocalThread未设置初始值的时候调用get返回null，覆盖initivalValue()方法使得其具有初始值。<br>ThreadLocal原理:<br>该ThreadLocalMap由ThreadLocal持有会导致线程间争抢资源的问题，但让每个Thread维护该map，每个 Thread 只访问自己的 Map，将不会导致多线程写冲突。也就不需要锁。该方案如下图所示。<br><img src="/2019/05/29/java1/20180502092958420.png" alt="20180502092958420"></p>
+<p>ThreadLocal源码实现</p>
+<p>（1）ThreadLocal<string> local=new ThreadLocal<string>()，t.set(“herock”),为啥直接设置value就知道该value属于哪个线程？</string></string></p>
+<p>1)首先获取到当前线程，通过getMap(t)传入线程获得该线程持有的实例变量ThreadLocalMap。<br><img src="/2019/05/29/java1/20180502093837485.png" alt="20180502093837485"><br>2）getMap(t)返回线程t的实例变量threadLocals<br><img src="/2019/05/29/java1/20180502094127839.png" alt="20180502094127839"></p>
+<p><img src="/2019/05/29/java1/20180502094310309.png" alt="20180502094310309"><br>3）如果threadLocals为null就创建map，如果不为null以ThreadLocal实例为key，以所存值为value存入map.<br>  <img src="/2019/05/29/java1/20180502094632478.png" alt="20180502094632478"></p>
+<p><img src="/2019/05/29/java1/20180502094759872.png" alt="20180502094759872"></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2019/05/29/java1/">Java多线程</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">AY</a></p>
+        <p><span>发布时间:</span>2019-05-29, 09:59:02</p>
+        <p><span>最后更新:</span>2019-05-29, 17:34:19</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2019/05/29/java1/" title="Java多线程">http://yoursite.com/2019/05/29/java1/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/05/29/java1/　　作者: AY" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target="_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2019/05/30/linkedList/">
+                    链表
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2019/05/27/offer8/">
+                    剑指offer8-9
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-6"><a class="toc-link" href="#Join-方法："><span class="toc-number">1.</span> <span class="toc-text">Join()方法：</span></a></li></ol><li class="toc-item toc-level-5"><a class="toc-link" href="#ThreadLocal类"><span class="toc-number"></span> <span class="toc-text">ThreadLocal类</span></a>
+        
+    </li></div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"Java多线程　| A-Bubble　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2019/05/30/linkedList/" title="上一篇: 链表">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2019/05/27/offer8/" title="下一篇: 剑指offer8-9">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/06/03/mySql/">MySql基础知识</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/30/linkedList/">链表</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/29/java1/">Java多线程</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/27/offer8/">剑指offer8-9</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/21/Java/">Java基础知识</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/20/Dqueue/">队列实现原理</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/19/offer6/">剑指Offer6-7</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/19/offer5/">剑指Offer5</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/18/Offer4/">剑指Offer4</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/18/5-18/">synchronized同步方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/18/TBBT/">TBBT全剧终</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/17/PV/">PV操作题目</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/15/多线程/">Java多线程（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/02/DL01/">基于静态帧的行识别</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/01/剑指Offer/">剑指Offer1-2</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/01/剑指Offer3/">剑指Offer3</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2018-2019 AY
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style="display:none">
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style="display:none">
+                        <span id="page-visit" title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+    <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
